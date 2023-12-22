@@ -1,11 +1,11 @@
 namespace NomNomNosh.Domain.Entities
 {
-    public class Comment
+    public class RecipeComment
     {
-        public Guid Comment_Id { get; set; }
+        public Guid RecipeComment_Id { get; set; }
         public Guid Recipe_Id { get; set; }
         public Guid Member_Id { get; set; }
-        public string Comment_Content { get; set; }
-        public DateTime Comment_Date { get; set; }
+        public string RecipeComment_Content { get; set; }
+        public DateTime RecipeComment_Date { get; set; }
     }
 }
