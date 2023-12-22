@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "LHILizMgPCoQ+M8UQD0OpI0mHLN0Q3Gcx6kqZzjn6RS+LhArfUKQowX59HVwaCTK6FFHwS2s79LVHfbe2oy8ZA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ivanc\\Documents\\Github\\NomNomNosh_Hub\\NomNomNosh.API\\NomNomNosh.API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ivanc\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.0\\microsoft.aspnetcore.openapi.8.0.0.nupkg.sha512",
+    "C:\\Users\\ivanc\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\ivanc\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
+    "C:\\Users\\ivanc\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
+    "C:\\Users\\ivanc\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
+    "C:\\Users\\ivanc\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
+    "C:\\Users\\ivanc\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}
