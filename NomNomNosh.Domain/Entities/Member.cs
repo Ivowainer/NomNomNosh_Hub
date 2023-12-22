@@ -9,5 +9,8 @@ namespace NomNomNosh.Domain.Entities
         public string Email { get; set; }
         public string Password { get; set; }
         public string Profile_Image { get; set; }
+
+        // Recipes created by Member, One to Many (Member => Recipes)
+        public virtual ICollection<Recipe> Recipes { get; set; }
     }
 }
