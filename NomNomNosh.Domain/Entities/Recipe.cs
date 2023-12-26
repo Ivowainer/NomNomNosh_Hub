@@ -12,5 +12,8 @@ namespace NomNomNosh.Domain.Entities
         // One to Many (Member => Recipes)
         public Member Member { get; set; }
         public Guid Member_Id { get; set; }
+
+        // One recipe have many comments, One to Many (Recipe => Comments)
+        public virtual ICollection<RecipeComment> RecipeComments { get; set; }
     }
 }

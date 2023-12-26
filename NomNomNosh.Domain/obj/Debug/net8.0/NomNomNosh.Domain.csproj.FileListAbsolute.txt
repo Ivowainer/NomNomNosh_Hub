@@ -1,0 +1,12 @@
+C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.Domain\bin\Debug\net8.0\NomNomNosh.Domain.deps.json
+C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.Domain\bin\Debug\net8.0\NomNomNosh.Domain.dll
+C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.Domain\bin\Debug\net8.0\NomNomNosh.Domain.pdb
+C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.Domain\obj\Debug\net8.0\NomNomNosh.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.Domain\obj\Debug\net8.0\NomNomNosh.Domain.AssemblyInfoInputs.cache
+C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.Domain\obj\Debug\net8.0\NomNomNosh.Domain.AssemblyInfo.cs
+C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.Domain\obj\Debug\net8.0\NomNomNosh.Domain.csproj.CoreCompileInputs.cache
+C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.Domain\obj\Debug\net8.0\NomNomNosh.Domain.sourcelink.json
+C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.Domain\obj\Debug\net8.0\NomNomNosh.Domain.dll
+C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.Domain\obj\Debug\net8.0\refint\NomNomNosh.Domain.dll
+C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.Domain\obj\Debug\net8.0\NomNomNosh.Domain.pdb
+C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.Domain\obj\Debug\net8.0\ref\NomNomNosh.Domain.dll

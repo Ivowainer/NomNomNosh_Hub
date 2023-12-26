@@ -1,0 +1,12 @@
+C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.Application\bin\Debug\net8.0\NomNomNosh.Application.deps.json
+C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.Application\bin\Debug\net8.0\NomNomNosh.Application.dll
+C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.Application\bin\Debug\net8.0\NomNomNosh.Application.pdb
+C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.Application\obj\Debug\net8.0\NomNomNosh.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.Application\obj\Debug\net8.0\NomNomNosh.Application.AssemblyInfoInputs.cache
+C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.Application\obj\Debug\net8.0\NomNomNosh.Application.AssemblyInfo.cs
+C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.Application\obj\Debug\net8.0\NomNomNosh.Application.csproj.CoreCompileInputs.cache
+C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.Application\obj\Debug\net8.0\NomNomNosh.Application.sourcelink.json
+C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.Application\obj\Debug\net8.0\NomNomNosh.Application.dll
+C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.Application\obj\Debug\net8.0\refint\NomNomNosh.Application.dll
+C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.Application\obj\Debug\net8.0\NomNomNosh.Application.pdb
+C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.Application\obj\Debug\net8.0\ref\NomNomNosh.Application.dll

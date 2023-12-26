@@ -3,14 +3,14 @@ using NomNomNosh.Domain.Entities;
 
 namespace NomNomNosh.Infrastructure.Data
 {
-    public class AppDbContext_NomNomNush : DbContext
+    public class AppDbContext_NomNomNosh : DbContext
     {
-        public AppDbContext_NomNomNush(DbContextOptions options) : base(options) { }
+        public AppDbContext_NomNomNosh(DbContextOptions options) : base(options) { }
 
         public DbSet<Recipe> Recipes { get; set; }
         public DbSet<Member> Members { get; set; }
-        /* public DbSet<RecipeComment> RecipeComments { get; set; }
-        public DbSet<RecipeRate> RecipeRates { get; set; }
+        public DbSet<RecipeComment> RecipeComments { get; set; }
+        /* public DbSet<RecipeRate> RecipeRates { get; set; }
         public DbSet<RecipeImage> RecipeImages { get; set; }
         public DbSet<RecipeStep> RecipeSteps { get; set; }
         public DbSet<RecipeSaved> RecipeSaved { get; set; } */
@@ -29,10 +29,15 @@ namespace NomNomNosh.Infrastructure.Data
                 ms.Property(m => m.Last_Name).IsRequired();
                 ms.Property(m => m.Password).IsRequired();
                 ms.Property(m => m.Email).IsRequired();
+
+                ms.HasMany(m => m.RecipeComments)
+                    .WithOne(rc => rc.Member)
+                    .HasForeignKey(rc => rc.Member_Id);
             });
 
             modelBuilder.Entity<Recipe>(rs =>
             {
+                // PK
                 rs.HasKey(r => r.Recipe_Id);
 
                 rs.Property(r => r.Title).IsRequired();
@@ -43,10 +48,20 @@ namespace NomNomNosh.Infrastructure.Data
                 rs.HasOne(r => r.Member)
                     .WithMany(m => m.Recipes)
                     .HasForeignKey(r => r.Member_Id);
+
+                rs.HasMany(r => r.RecipeComments)
+                    .WithOne(rc => rc.Recipe)
+                    .HasForeignKey(rc => rc.Recipe_Id);
             });
 
+            modelBuilder.Entity<RecipeComment>(rcs =>
+            {
+                rcs.HasKey(rc => rc.RecipeComment_Id);
+
+                rcs.Property(rc => rc.RecipeComment_Content).IsRequired();
+                rcs.Property(rc => rc.Member_Id).IsRequired();
+                rcs.Property(rc => rc.Recipe_Id).IsRequired();
+            });
         }
-
-
     }
 }
