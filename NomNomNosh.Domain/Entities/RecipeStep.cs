@@ -6,5 +6,8 @@ namespace NomNomNosh.Domain.Entities
         public Guid Recipe_Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+
+        // One recipe have many RecipeStep, One to many: (Recipe => RecipeSteps)
+        public virtual Recipe Recipe { get; set; }
     }
 }

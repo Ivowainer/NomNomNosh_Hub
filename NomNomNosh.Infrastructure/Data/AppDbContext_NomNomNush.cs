@@ -20,6 +20,7 @@ namespace NomNomNosh.Infrastructure.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            // Member
             modelBuilder.Entity<Member>(ms =>
             {
                 // PK
@@ -32,6 +33,7 @@ namespace NomNomNosh.Infrastructure.Data
                 ms.Property(m => m.Email).IsRequired();
             });
 
+            // Recipe
             modelBuilder.Entity<Recipe>(rs =>
             {
                 // PK
@@ -48,6 +50,7 @@ namespace NomNomNosh.Infrastructure.Data
                     .HasForeignKey(r => r.Member_Id);
             });
 
+            // RecipeComment
             modelBuilder.Entity<RecipeComment>(rcs =>
             {
                 rcs.HasKey(rc => rc.RecipeComment_Id);
@@ -66,6 +69,7 @@ namespace NomNomNosh.Infrastructure.Data
                     .HasForeignKey(rc => rc.Recipe_Id);
             });
 
+            // RecipeRate
             modelBuilder.Entity<RecipeRate>(rrs =>
             {
                 // PK
@@ -86,6 +90,7 @@ namespace NomNomNosh.Infrastructure.Data
 
             });
 
+            // RecipeImage
             modelBuilder.Entity<RecipeImage>(ris =>
             {
                 //PK
@@ -98,6 +103,21 @@ namespace NomNomNosh.Infrastructure.Data
                 ris.HasOne(ri => ri.Recipe)
                     .WithMany(r => r.RecipeImages)
                     .HasForeignKey(ri => ri.Recipe_Id);
+            });
+
+            modelBuilder.Entity<RecipeStep>(rss =>
+            {
+                // PK
+                rss.HasKey(rs => rs.RecipeStep_Id);
+
+                rss.Property(rs => rs.Title).IsRequired();
+                rss.Property(rs => rs.Description).IsRequired();
+                rss.Property(rs => rs.Recipe_Id).IsRequired();
+
+                // Relationships
+                rss.HasOne(rs => rs.Recipe)
+                    .WithMany(r => r.RecipeSteps)
+                    .HasForeignKey(rs => rs.Recipe_Id);
             });
         }
     }
