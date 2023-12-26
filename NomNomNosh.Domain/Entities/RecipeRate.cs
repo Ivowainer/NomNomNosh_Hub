@@ -6,5 +6,9 @@ namespace NomNomNosh.Domain.Entities
         public Guid Recipe_Id { get; set; }
         public Guid Member_Id { get; set; }
         public decimal Rating_Value { get; set; }
+
+        // One to Many: (Member => RecipeRates), (Recipe => RecipeRates)
+        public Member Member { get; set; }
+        public Recipe Recipe { get; set; }
     }
 }
