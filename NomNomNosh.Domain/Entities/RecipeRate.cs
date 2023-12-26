@@ -9,6 +9,6 @@ namespace NomNomNosh.Domain.Entities
 
         // One to Many: (Member => RecipeRates), (Recipe => RecipeRates)
         public Member Member { get; set; }
-        public Recipe Recipe { get; set; }
+        public virtual Recipe Recipe { get; set; }
     }
 }

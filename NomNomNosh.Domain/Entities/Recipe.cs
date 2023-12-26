@@ -16,7 +16,10 @@ namespace NomNomNosh.Domain.Entities
         // One recipe have many comments, One to Many (Recipe => Comments)
         public virtual ICollection<RecipeComment> RecipeComments { get; set; }
 
-        // RecipeRate created by Member, One to Many (Member => RecipeRate)
+        // One recipe have many RecipeRates, One to Many (Recipe => RecipeRates)
         public virtual ICollection<RecipeRate> RecipeRates { get; set; }
+
+        // One recipe have many RecipeImages, One to Many(Recipe => RecipeImages)
+        public virtual ICollection<RecipeImage> RecipeImages { get; set; }
     }
 }

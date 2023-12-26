@@ -9,7 +9,7 @@ namespace NomNomNosh.Domain.Entities
         public DateTime RecipeComment_Date { get; set; }
 
         // Member, Recipe: One to Many, (Member => Comment), (Recipe => Comment)
-        public virtual Member Member { get; set; }
+        public Member Member { get; set; }
         public virtual Recipe Recipe { get; set; }
     }
 }

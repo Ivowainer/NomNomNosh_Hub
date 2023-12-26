@@ -11,7 +11,7 @@ namespace NomNomNosh.Domain.Entities
         public string Profile_Image { get; set; }
 
         // Recipes created by Member, One to Many (Member => Recipes)
-        public virtual ICollection<Recipe> Recipes { get; set; }
+        public ICollection<Recipe> Recipes { get; set; }
 
         // RecipesComments created by Member, One to Many (Member => RecipeComments)
         public virtual ICollection<RecipeComment> RecipeComments { get; set; }
