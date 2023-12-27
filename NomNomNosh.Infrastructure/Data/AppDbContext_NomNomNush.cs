@@ -13,8 +13,8 @@ namespace NomNomNosh.Infrastructure.Data
         public DbSet<RecipeRate> RecipeRates { get; set; }
         public DbSet<RecipeImage> RecipeImages { get; set; }
 
-        /* public DbSet<RecipeStep> RecipeSteps { get; set; }
-        public DbSet<RecipeSaved> RecipeSaved { get; set; } */
+        public DbSet<RecipeStep> RecipeSteps { get; set; }
+        public DbSet<RecipeSaved> RecipeSaved { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -105,6 +105,7 @@ namespace NomNomNosh.Infrastructure.Data
                     .HasForeignKey(ri => ri.Recipe_Id);
             });
 
+            // RecipeStep
             modelBuilder.Entity<RecipeStep>(rss =>
             {
                 // PK
@@ -118,6 +119,26 @@ namespace NomNomNosh.Infrastructure.Data
                 rss.HasOne(rs => rs.Recipe)
                     .WithMany(r => r.RecipeSteps)
                     .HasForeignKey(rs => rs.Recipe_Id);
+            });
+
+            // RecipeSaved
+            modelBuilder.Entity<RecipeSaved>(rss =>
+            {
+                // PK
+                rss.HasKey(rs => rs.RecipeSaved_Id);
+
+                rss.Property(rs => rs.Member_Id).IsRequired();
+                rss.Property(rs => rs.Recipe_Id).IsRequired();
+
+                // Relationships
+                rss.HasOne(rs => rs.Member)
+                    .WithMany(m => m.RecipesSaved)
+                    .HasForeignKey(rs => rs.Member_Id);
+
+                rss.HasOne(rs => rs.Recipe)
+                    .WithMany(r => r.RecipesSaved)
+                    .HasForeignKey(rs => rs.Recipe_Id);
+
             });
         }
     }

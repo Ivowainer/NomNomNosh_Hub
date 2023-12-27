@@ -18,5 +18,8 @@ namespace NomNomNosh.Domain.Entities
 
         // RecipeRate created by Member, One to Many (Member => RecipeRate)
         public virtual ICollection<RecipeRate> RecipeRates { get; set; }
+
+        // RecipeSaved saved by Member, One to Many (Member => RecipeSaved)
+        public virtual ICollection<RecipeSaved> RecipesSaved { get; set; }
     }
 }

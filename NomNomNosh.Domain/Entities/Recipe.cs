@@ -24,5 +24,8 @@ namespace NomNomNosh.Domain.Entities
 
         // One recipe have many RecipeStep, One to many: (Recipe => RecipeSteps)
         public virtual ICollection<RecipeStep> RecipeSteps { get; set; }
+
+        // One recipe have many RecipeSaved by Member, One to many: (Recipe => RecipeSaved)
+        public virtual ICollection<RecipeSaved> RecipesSaved { get; set; }
     }
 }
