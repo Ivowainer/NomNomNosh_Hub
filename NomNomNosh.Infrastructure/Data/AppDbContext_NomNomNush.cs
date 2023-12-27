@@ -66,7 +66,8 @@ namespace NomNomNosh.Infrastructure.Data
 
                 rcs.HasOne(rc => rc.Recipe)
                     .WithMany(r => r.RecipeComments)
-                    .HasForeignKey(rc => rc.Recipe_Id);
+                    .HasForeignKey(rc => rc.Recipe_Id)
+                    .OnDelete(DeleteBehavior.NoAction);
             });
 
             // RecipeRate
@@ -86,7 +87,8 @@ namespace NomNomNosh.Infrastructure.Data
 
                 rrs.HasOne(rr => rr.Recipe)
                     .WithMany(r => r.RecipeRates)
-                    .HasForeignKey(rr => rr.Recipe_Id);
+                    .HasForeignKey(rr => rr.Recipe_Id)
+                    .OnDelete(DeleteBehavior.NoAction);
 
             });
 
@@ -102,7 +104,8 @@ namespace NomNomNosh.Infrastructure.Data
                 // Relationships
                 ris.HasOne(ri => ri.Recipe)
                     .WithMany(r => r.RecipeImages)
-                    .HasForeignKey(ri => ri.Recipe_Id);
+                    .HasForeignKey(ri => ri.Recipe_Id)
+                    .OnDelete(DeleteBehavior.NoAction);
             });
 
             // RecipeStep
@@ -118,7 +121,8 @@ namespace NomNomNosh.Infrastructure.Data
                 // Relationships
                 rss.HasOne(rs => rs.Recipe)
                     .WithMany(r => r.RecipeSteps)
-                    .HasForeignKey(rs => rs.Recipe_Id);
+                    .HasForeignKey(rs => rs.Recipe_Id)
+                    .OnDelete(DeleteBehavior.NoAction);
             });
 
             // RecipeSaved
@@ -137,7 +141,8 @@ namespace NomNomNosh.Infrastructure.Data
 
                 rss.HasOne(rs => rs.Recipe)
                     .WithMany(r => r.RecipesSaved)
-                    .HasForeignKey(rs => rs.Recipe_Id);
+                    .HasForeignKey(rs => rs.Recipe_Id)
+                    .OnDelete(DeleteBehavior.NoAction);
 
             });
         }

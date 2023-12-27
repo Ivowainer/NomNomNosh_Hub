@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NomNomNosh.Infrastructure.Data;
 
@@ -11,9 +12,11 @@ using NomNomNosh.Infrastructure.Data;
 namespace NomNomNosh.API.Migrations
 {
     [DbContext(typeof(AppDbContext_NomNomNosh))]
-    partial class AppDbContext_NomNomNoshModelSnapshot : ModelSnapshot
+    [Migration("20231227001556_Relationships")]
+    partial class Relationships
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
