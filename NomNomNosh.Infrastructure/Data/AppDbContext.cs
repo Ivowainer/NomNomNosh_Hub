@@ -3,9 +3,9 @@ using NomNomNosh.Domain.Entities;
 
 namespace NomNomNosh.Infrastructure.Data
 {
-    public class AppDbContext_NomNomNosh : DbContext
+    public class AppDbContext : DbContext
     {
-        public AppDbContext_NomNomNosh(DbContextOptions options) : base(options) { }
+        public AppDbContext(DbContextOptions options) : base(options) { }
 
         public DbSet<Recipe> Recipes { get; set; }
         public DbSet<Member> Members { get; set; }
