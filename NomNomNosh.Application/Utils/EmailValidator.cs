@@ -1,6 +1,8 @@
 using System.Text.RegularExpressions;
 
-namespace NomNomNosh.Infrastructure.Utils
+using NomNomNosh.Application.Utils.Interface;
+
+namespace NomNomNosh.Application.Utils
 {
     public class EmailValidator : IEmailValidator
     {

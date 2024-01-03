@@ -1,4 +1,4 @@
-namespace NomNomNosh.Infrastructure.Utils
+namespace NomNomNosh.Application.Utils.Interface
 {
     public interface IEmailValidator
     {
