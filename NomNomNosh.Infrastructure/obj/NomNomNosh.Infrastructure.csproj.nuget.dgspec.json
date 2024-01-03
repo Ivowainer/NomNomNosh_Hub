@@ -28,8 +28,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\ivanc\\Documents\\Github\\NomNomNosh_Hub\\NomNomNosh.Infrastructure\\NomNomNosh.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\ivanc\\Documents\\Github\\NomNomNosh_Hub\\NomNomNosh.Infrastructure\\NomNomNosh.Infrastructure.csproj"
+              "C:\\Users\\ivanc\\Documents\\Github\\NomNomNosh_Hub\\NomNomNosh.Domain\\NomNomNosh.Domain.csproj": {
+                "projectPath": "C:\\Users\\ivanc\\Documents\\Github\\NomNomNosh_Hub\\NomNomNosh.Domain\\NomNomNosh.Domain.csproj"
               }
             }
           }

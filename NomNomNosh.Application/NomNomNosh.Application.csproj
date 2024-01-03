@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\NomNomNosh.Infrastructure\NomNomNosh.Infrastructure.csproj" />
+    <ProjectReference Include="..\NomNomNosh.Domain\NomNomNosh.Domain.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
@@ -9,5 +9,4 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
 </Project>

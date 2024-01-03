@@ -11,7 +11,7 @@ using NomNomNosh.Infrastructure.Data;
 
 namespace NomNomNosh.API.Migrations
 {
-    [DbContext(typeof(AppDbContext_NomNomNosh))]
+    [DbContext(typeof(AppDbContext))]
     [Migration("20231227001556_Relationships")]
     partial class Relationships
     {

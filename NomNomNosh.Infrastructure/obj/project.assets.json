@@ -1482,7 +1482,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
-          "NomNomNosh.Infrastructure": "1.0.0"
+          "NomNomNosh.Domain": "1.0.0"
         },
         "compile": {
           "bin/placeholder/NomNomNosh.Application.dll": {}
@@ -4130,16 +4130,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1108",
-      "level": "Error",
-      "message": "Ciclo detectado. \r\n  NomNomNosh.Infrastructure -> NomNomNosh.Application -> NomNomNosh.Infrastructure.",
-      "libraryId": "NomNomNosh.Infrastructure",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  }
 }

@@ -16,3 +16,5 @@ C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.Infrastructure\obj\Deb
 C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.Infrastructure\obj\Debug\net8.0\NomNomNosh.Infrastructure.pdb
 C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.Infrastructure\obj\Debug\net8.0\NomNomNosh.Infrastructure.genruntimeconfig.cache
 C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.Infrastructure\obj\Debug\net8.0\ref\NomNomNosh.Infrastructure.dll
+C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.Infrastructure\bin\Debug\net8.0\NomNomNosh.Application.dll
+C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.Infrastructure\bin\Debug\net8.0\NomNomNosh.Application.pdb

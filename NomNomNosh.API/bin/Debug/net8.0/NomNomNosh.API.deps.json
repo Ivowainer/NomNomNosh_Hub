@@ -899,6 +899,9 @@
         }
       },
       "NomNomNosh.Application/1.0.0": {
+        "dependencies": {
+          "NomNomNosh.Domain": "1.0.0"
+        },
         "runtime": {
           "NomNomNosh.Application.dll": {}
         }
@@ -912,6 +915,7 @@
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "8.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.0",
+          "NomNomNosh.Application": "1.0.0",
           "NomNomNosh.Domain": "1.0.0"
         },
         "runtime": {

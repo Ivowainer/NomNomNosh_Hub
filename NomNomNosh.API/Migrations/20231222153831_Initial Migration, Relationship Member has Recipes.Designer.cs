@@ -11,7 +11,7 @@ using NomNomNosh.Infrastructure.Data;
 
 namespace NomNomNosh.API.Migrations
 {
-    [DbContext(typeof(AppDbContext_NomNomNosh))]
+    [DbContext(typeof(AppDbContext))]
     [Migration("20231222153831_Initial Migration, Relationship Member has Recipes")]
     partial class InitialMigrationRelationshipMemberhasRecipes
     {

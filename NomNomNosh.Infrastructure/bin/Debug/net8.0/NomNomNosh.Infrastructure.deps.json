@@ -11,6 +11,7 @@
           "Microsoft.EntityFrameworkCore": "8.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.0",
           "Microsoft.EntityFrameworkCore.Tools": "8.0.0",
+          "NomNomNosh.Application": "1.0.0",
           "NomNomNosh.Domain": "1.0.0"
         },
         "runtime": {
@@ -913,6 +914,14 @@
           }
         }
       },
+      "NomNomNosh.Application/1.0.0": {
+        "dependencies": {
+          "NomNomNosh.Domain": "1.0.0"
+        },
+        "runtime": {
+          "NomNomNosh.Application.dll": {}
+        }
+      },
       "NomNomNosh.Domain/1.0.0": {
         "runtime": {
           "NomNomNosh.Domain.dll": {}
@@ -1450,6 +1459,11 @@
       "sha512": "sha512-IXoJOXIqc39AIe+CIR7koBtRGMiCt/LPM3lI+PELtDIy9XdyeSrwXFdWV9dzJ2Awl0paLWUaknLxFQ5HpHZUog==",
       "path": "system.windows.extensions/6.0.0",
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
+    },
+    "NomNomNosh.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "NomNomNosh.Domain/1.0.0": {
       "type": "project",

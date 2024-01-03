@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+
 using NomNomNosh.Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
