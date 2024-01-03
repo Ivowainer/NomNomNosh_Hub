@@ -37,7 +37,17 @@ namespace NomNomNosh.Infrastructure.Repositories
 
         public async Task<MemberDto> RegisterMember(Member member)
         {
-            throw new NotImplementedException();
+            await _appDbContext.Members.AddAsync(member);
+
+            return new MemberDto
+            {
+                Member_Id = member.Member_Id,
+                Email = member.Email,
+                First_Name = member.First_Name,
+                Last_Name = member.Last_Name,
+                Profile_Image = member.Profile_Image,
+                Username = member.Username,
+            };
         }
     }
 }

@@ -22,8 +22,6 @@ namespace NomNomNosh.Application.Services
         {
             if (!_emailValidator.IsValidEmail(email))
                 throw new ArgumentException("The email adress given is wrong");
-            if (password.Length <= 5)
-                throw new ArgumentException("The password must be at least 6 characters");
 
             var member = await _memberRepository.LoginMember(email, password);
 
@@ -32,7 +30,17 @@ namespace NomNomNosh.Application.Services
 
         public Task<MemberDto> RegisterMember(Member member)
         {
-            throw new NotImplementedException();
+            if (!_emailValidator.IsValidEmail(member.Email))
+                throw new ArgumentException("The email adress given is wrong");
+            if (member.Last_Name.Length <= 3)
+                throw new ArgumentException("The Last Name must be at least 6 characters");
+            if (member.Password.Length <= 5)
+                throw new ArgumentException("The Password must be at least 6 characters");
+            member.Profile_Image ??= "https://img.freepik.com/free-vector/illustration-user-avatar-icon_53876-5907.jpg?w=740&t=st=1704294997~exp=1704295597~hmac=dfd96f01386981955314f5bdf9ecc5b386eb1350fa5c7a38ce2cee178a0c3575";
+
+            var newMember = _memberRepository.RegisterMember(member);
+
+            return newMember;
         }
     }
 }
