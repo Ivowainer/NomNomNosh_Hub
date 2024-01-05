@@ -1,6 +1,11 @@
 using Microsoft.EntityFrameworkCore;
-
+using NomNomNosh.API.Config;
+using NomNomNosh.Application.Interfaces;
+using NomNomNosh.Application.Services;
+using NomNomNosh.Application.Utils;
+using NomNomNosh.Application.Utils.Interface;
 using NomNomNosh.Infrastructure.Data;
+using NomNomNosh.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +18,11 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("NomNomNosh.API"))
 );
+
+builder.Services.AddScoped<IMemberRepository, MemberRepository>();
+builder.Services.AddScoped<IMemberService, MemberService>();
+builder.Services.AddScoped<IEmailValidator, EmailValidator>();
+builder.Services.AddSingleton<IErrorHandler, ErrorHandler>();
 
 var app = builder.Build();
 

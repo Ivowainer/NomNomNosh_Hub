@@ -7,5 +7,6 @@ namespace NomNomNosh.Application.Interfaces
     {
         Task<MemberDto> LoginMember(string email, string password);
         Task<MemberDto> RegisterMember(Member member);
+        Task<bool> MemberAlreadyExists(string username, string email);
     }
 }

@@ -38,6 +38,7 @@ namespace NomNomNosh.Infrastructure.Repositories
         public async Task<MemberDto> RegisterMember(Member member)
         {
             await _appDbContext.Members.AddAsync(member);
+            await _appDbContext.SaveChangesAsync();
 
             return new MemberDto
             {
@@ -48,6 +49,11 @@ namespace NomNomNosh.Infrastructure.Repositories
                 Profile_Image = member.Profile_Image,
                 Username = member.Username,
             };
+        }
+
+        public async Task<bool> MemberAlreadyExists(string username, string email)
+        {
+            return await _appDbContext.Members.AnyAsync(m => m.Username == username || m.Email == email);
         }
     }
 }

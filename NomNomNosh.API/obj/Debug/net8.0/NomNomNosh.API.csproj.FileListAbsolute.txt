@@ -141,3 +141,4 @@ C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.API\obj\Debug\net8.0\r
 C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.API\obj\Debug\net8.0\NomNomNosh.API.pdb
 C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.API\obj\Debug\net8.0\NomNomNosh.API.genruntimeconfig.cache
 C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.API\obj\Debug\net8.0\ref\NomNomNosh.API.dll
+C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.API\bin\Debug\net8.0\Newtonsoft.Json.dll
