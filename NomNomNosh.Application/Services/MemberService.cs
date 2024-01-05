@@ -21,7 +21,7 @@ namespace NomNomNosh.Application.Services
         public async Task<MemberDto> LoginMember(string email, string password)
         {
             if (!_emailValidator.IsValidEmail(email))
-                throw new ArgumentException("The email adress given is wrong");
+                throw new UnauthorizedAccessException("The email adress given is wrong");
 
             var member = await _memberRepository.LoginMember(email, password);
 

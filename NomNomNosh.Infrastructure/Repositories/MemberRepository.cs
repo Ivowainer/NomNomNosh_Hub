@@ -6,6 +6,7 @@ using NomNomNosh.Application.Interfaces;
 using NomNomNosh.Infrastructure.Data;
 
 using Microsoft.EntityFrameworkCore;
+using BCrypt.Net;
 
 namespace NomNomNosh.Infrastructure.Repositories
 {
@@ -21,8 +22,8 @@ namespace NomNomNosh.Infrastructure.Repositories
         {
             var member = await _appDbContext.Members.FirstOrDefaultAsync(m => m.Email == email);
 
-            if (member == null || member.Password != password)
-                throw new InvalidOperationException("Invalid email or password");
+            if (member == null || !(BCrypt.Net.BCrypt.Verify(password, member?.Password)))
+                throw new UnauthorizedAccessException("Invalid email or password");
 
             return new MemberDto
             {
@@ -37,6 +38,8 @@ namespace NomNomNosh.Infrastructure.Repositories
 
         public async Task<MemberDto> RegisterMember(Member member)
         {
+            member.Password = BCrypt.Net.BCrypt.HashPassword(member.Password);
+
             await _appDbContext.Members.AddAsync(member);
             await _appDbContext.SaveChangesAsync();
 
