@@ -26,14 +26,16 @@ namespace NomNomNosh.Application.Services
             return newRecipe;
         }
 
-        public Task<RecipeDto> DeleteRecipe(Guid recipe_id)
+        public Task<RecipeDto> UpdateRecipe(Guid recipe_id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<RecipeDto> UpdateRecipe(Guid recipe_id)
+        public async Task<RecipeDto> DeleteRecipe(Guid recipe_id, Guid member_id)
         {
-            throw new NotImplementedException();
+            var recipe = await _recipeRepository.DeleteRecipe(recipe_id, member_id);
+
+            return recipe;
         }
     }
 }
