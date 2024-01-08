@@ -2,6 +2,7 @@ using NomNomNosh.Application.DTOs;
 using NomNomNosh.Application.Interfaces;
 using NomNomNosh.Domain.Entities;
 using NomNomNosh.Infrastructure.Data;
+using NomNomNosh.Infrastructure.Utils;
 
 namespace NomNomNosh.Infrastructure.Repositories
 {
@@ -9,9 +10,11 @@ namespace NomNomNosh.Infrastructure.Repositories
     {
 
         private readonly AppDbContext _appDbContext;
-        public RecipeRepository(AppDbContext appDbContext)
+        private readonly IUtils _utils;
+        public RecipeRepository(AppDbContext appDbContext, IUtils utils)
         {
             _appDbContext = appDbContext;
+            _utils = utils;
         }
 
         public async Task<RecipeDto> CreateRecipe(Guid member_id, Recipe recipe)
@@ -41,7 +44,7 @@ namespace NomNomNosh.Infrastructure.Repositories
 
         public async Task<RecipeDto> UpdateRecipe(Guid recipe_id, Guid member_id, Recipe recipe)
         {
-            var recipeToUpdate = await GetRecipeIfOwner(recipe_id, member_id);
+            var recipeToUpdate = await _utils.GetRecipeIfOwner(recipe_id, member_id);
 
             recipeToUpdate.Title = recipe.Title;
             recipeToUpdate.Description = recipe.Description;
@@ -60,7 +63,7 @@ namespace NomNomNosh.Infrastructure.Repositories
 
         public async Task<RecipeDto> DeleteRecipe(Guid recipe_id, Guid member_id)
         {
-            var recipe = await GetRecipeIfOwner(recipe_id, member_id);
+            var recipe = await _utils.GetRecipeIfOwner(recipe_id, member_id);
 
             _appDbContext.Recipes.Remove(recipe);
             await _appDbContext.SaveChangesAsync();
@@ -75,17 +78,6 @@ namespace NomNomNosh.Infrastructure.Repositories
                 Member_Id = recipe.Member_Id,
                 Published_Date = recipe.Published_Date,
             };
-        }
-
-        // Utils
-        private async Task<Recipe> GetRecipeIfOwner(Guid recipe_id, Guid member_id)
-        {
-            var recipe = await _appDbContext.Recipes.FindAsync(recipe_id) ?? throw new InvalidOperationException("Recipe not found."); ;
-
-            if (recipe.Member_Id != member_id)
-                throw new UnauthorizedAccessException("You are not authorized to edit this recipe.");
-
-            return recipe;
         }
     }
 }

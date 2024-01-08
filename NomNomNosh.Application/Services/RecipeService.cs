@@ -15,7 +15,7 @@ namespace NomNomNosh.Application.Services
         public async Task<RecipeDto> CreateRecipe(Guid member_id, Recipe recipe)
         {
             if (recipe.Title.Length < 6)
-                throw new ArgumentException("The title of the recet must be at least 6 characters");
+                throw new ArgumentException("The title of the recipe must be at least 6 characters");
             if (recipe.Description.Length < 10)
                 throw new ArgumentException("The Description must be at least 10 characters");
             if (recipe.Main_Image == null)
@@ -29,7 +29,7 @@ namespace NomNomNosh.Application.Services
         public async Task<RecipeDto> UpdateRecipe(Guid recipe_id, Guid member_id, Recipe recipe)
         {
             if (recipe.Title.Length < 6)
-                throw new ArgumentException("The title of the recet must be at least 6 characters");
+                throw new ArgumentException("The title of the recipe must be at least 6 characters");
             if (recipe.Description.Length < 10)
                 throw new ArgumentException("The Description must be at least 10 characters");
             if (recipe.Main_Image == null)

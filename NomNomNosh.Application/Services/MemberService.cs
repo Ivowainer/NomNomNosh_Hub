@@ -3,24 +3,23 @@ using NomNomNosh.Domain.Entities;
 using NomNomNosh.Application.DTOs;
 using NomNomNosh.Application.Interfaces;
 using NomNomNosh.Application.Utils.Interface;
+using System.Text.RegularExpressions;
 
 namespace NomNomNosh.Application.Services
 {
     public class MemberService : IMemberService
     {
         private readonly IMemberRepository _memberRepository;
-        private readonly IEmailValidator _emailValidator;
 
-        public MemberService(IMemberRepository memberRepository, IEmailValidator emailValidator)
+        public MemberService(IMemberRepository memberRepository)
         {
 
             _memberRepository = memberRepository;
-            _emailValidator = emailValidator;
         }
 
         public async Task<MemberDto> LoginMember(string email, string password)
         {
-            if (!_emailValidator.IsValidEmail(email))
+            if (!IsValidEmail(email))
                 throw new UnauthorizedAccessException("The email adress given is wrong");
             if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
                 throw new ArgumentException("Cannot be null the Emila or Password");
@@ -32,7 +31,7 @@ namespace NomNomNosh.Application.Services
 
         public async Task<MemberDto> RegisterMember(Member member)
         {
-            if (!_emailValidator.IsValidEmail(member.Email))
+            if (!IsValidEmail(member.Email))
                 throw new ArgumentException("The email adress given is wrong");
             if (member.First_Name.Length < 3)
                 throw new ArgumentException("The First Name must be at least 2 characters");
@@ -48,6 +47,12 @@ namespace NomNomNosh.Application.Services
             var newMember = await _memberRepository.RegisterMember(member);
 
             return newMember;
+        }
+
+        // Utils 
+        public bool IsValidEmail(string email)
+        {
+            return Regex.IsMatch(email, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$");
         }
     }
 }
