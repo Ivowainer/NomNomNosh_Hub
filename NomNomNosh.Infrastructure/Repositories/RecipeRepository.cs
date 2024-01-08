@@ -1,4 +1,3 @@
-using Microsoft.EntityFrameworkCore;
 using NomNomNosh.Application.DTOs;
 using NomNomNosh.Application.Interfaces;
 using NomNomNosh.Domain.Entities;
@@ -8,6 +7,7 @@ namespace NomNomNosh.Infrastructure.Repositories
 {
     public class RecipeRepository : IRecipeRepository
     {
+
         private readonly AppDbContext _appDbContext;
         public RecipeRepository(AppDbContext appDbContext)
         {
@@ -48,10 +48,7 @@ namespace NomNomNosh.Infrastructure.Repositories
         {
 
             // only if the member is owner of the Recipe
-            var recipe = await _appDbContext.Recipes.FindAsync(recipe_id) ?? throw new InvalidOperationException("Recipe not found");
-
-            if (recipe.Member_Id != member_id)
-                throw new UnauthorizedAccessException("You are not authorized to edit this recipe");
+            var recipe = await GetRecipeIfOwner(recipe_id, member_id);
 
             _appDbContext.Recipes.Remove(recipe);
             await _appDbContext.SaveChangesAsync();
@@ -66,6 +63,17 @@ namespace NomNomNosh.Infrastructure.Repositories
                 Member_Id = recipe.Member_Id,
                 Published_Date = recipe.Published_Date,
             };
+        }
+
+        // Utils
+        private async Task<Recipe> GetRecipeIfOwner(Guid recipe_id, Guid member_id)
+        {
+            var recipe = await _appDbContext.Recipes.FindAsync(recipe_id) ?? throw new InvalidOperationException("Recipe not found."); ;
+
+            if (recipe.Member_Id != member_id)
+                throw new UnauthorizedAccessException("You are not authorized to edit this recipe.");
+
+            return recipe;
         }
     }
 }
