@@ -22,7 +22,7 @@ namespace NomNomNosh.Infrastructure.Repositories
         {
             var member = await _appDbContext.Members.FirstOrDefaultAsync(m => m.Email == email);
 
-            if (member == null || !(BCrypt.Net.BCrypt.Verify(password, member?.Password)))
+            if (member == null || !BCrypt.Net.BCrypt.Verify(password, member?.Password))
                 throw new UnauthorizedAccessException("Invalid email or password");
 
             return new MemberDto

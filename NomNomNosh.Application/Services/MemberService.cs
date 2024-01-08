@@ -22,6 +22,8 @@ namespace NomNomNosh.Application.Services
         {
             if (!_emailValidator.IsValidEmail(email))
                 throw new UnauthorizedAccessException("The email adress given is wrong");
+            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
+                throw new ArgumentException("Cannot be null the Emila or Password");
 
             var member = await _memberRepository.LoginMember(email, password);
 
@@ -32,6 +34,8 @@ namespace NomNomNosh.Application.Services
         {
             if (!_emailValidator.IsValidEmail(member.Email))
                 throw new ArgumentException("The email adress given is wrong");
+            if (member.First_Name.Length < 3)
+                throw new ArgumentException("The First Name must be at least 2 characters");
             if (member.Last_Name.Length <= 3)
                 throw new ArgumentException("The Last Name must be at least 6 characters");
             if (member.Password.Length <= 5)
