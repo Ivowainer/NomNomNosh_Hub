@@ -39,15 +39,26 @@ namespace NomNomNosh.Infrastructure.Repositories
         }
 
 
-        public Task<RecipeDto> UpdateRecipe(Guid recipe_id)
+        public async Task<RecipeDto> UpdateRecipe(Guid recipe_id, Guid member_id, Recipe recipe)
         {
-            throw new NotImplementedException();
+            var recipeToUpdate = await GetRecipeIfOwner(recipe_id, member_id);
+
+            recipeToUpdate.Title = recipe.Title;
+            recipeToUpdate.Description = recipe.Description;
+            recipeToUpdate.Main_Image = recipe.Main_Image;
+
+            await _appDbContext.SaveChangesAsync();
+
+            return new RecipeDto
+            {
+                Title = recipeToUpdate.Title,
+                Description = recipeToUpdate.Description,
+                Main_Image = recipeToUpdate.Main_Image,
+            };
         }
 
         public async Task<RecipeDto> DeleteRecipe(Guid recipe_id, Guid member_id)
         {
-
-            // only if the member is owner of the Recipe
             var recipe = await GetRecipeIfOwner(recipe_id, member_id);
 
             _appDbContext.Recipes.Remove(recipe);

@@ -26,16 +26,21 @@ namespace NomNomNosh.Application.Services
             return newRecipe;
         }
 
-        public Task<RecipeDto> UpdateRecipe(Guid recipe_id)
+        public async Task<RecipeDto> UpdateRecipe(Guid recipe_id, Guid member_id, Recipe recipe)
         {
-            throw new NotImplementedException();
+            if (recipe.Title.Length < 6)
+                throw new ArgumentException("The title of the recet must be at least 6 characters");
+            if (recipe.Description.Length < 10)
+                throw new ArgumentException("The Description must be at least 10 characters");
+            if (recipe.Main_Image == null)
+                throw new ArgumentException("The main image is required");
+
+            return await _recipeRepository.UpdateRecipe(recipe_id, member_id, recipe);
         }
 
         public async Task<RecipeDto> DeleteRecipe(Guid recipe_id, Guid member_id)
         {
-            var recipe = await _recipeRepository.DeleteRecipe(recipe_id, member_id);
-
-            return recipe;
+            return await _recipeRepository.DeleteRecipe(recipe_id, member_id);
         }
     }
 }
