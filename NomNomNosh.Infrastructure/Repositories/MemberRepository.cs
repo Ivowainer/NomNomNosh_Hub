@@ -27,7 +27,7 @@ namespace NomNomNosh.Infrastructure.Repositories
 
             return new MemberDto
             {
-                Member_Id = member.Member_Id,
+                Member_Id = member!.Member_Id,
                 Email = member.Email,
                 First_Name = member.First_Name,
                 Last_Name = member.Last_Name,

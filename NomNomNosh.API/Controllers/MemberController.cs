@@ -9,7 +9,7 @@ using NomNomNosh.API.Config;
 
 namespace NomNomNosh.API.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class MemberController : Controller
     {
         private readonly IMemberService _memberService;
@@ -32,7 +32,7 @@ namespace NomNomNosh.API.Controllers
                     First_Name = member.First_Name,
                     Last_Name = member.Last_Name,
                     Password = member.Password,
-                    Profile_Image = member.Profile_Image,
+                    Profile_Image = member.Profile_Image!,
                     Username = member.Username
                 });
             }

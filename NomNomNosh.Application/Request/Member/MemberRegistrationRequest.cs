@@ -7,6 +7,6 @@ namespace NomNomNosh.Application.Request.Member
         public string Last_Name { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public string Profile_Image { get; set; }
+        public string? Profile_Image { get; set; }
     }
 }

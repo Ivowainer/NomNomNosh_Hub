@@ -8,7 +8,7 @@ using NomNomNosh.Domain.Entities;
 
 namespace NomNomNosh.API.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/member/{member_id}/[controller]")]
     public class RecipeController : Controller
     {
         private readonly IRecipeService _recipeService;
@@ -19,7 +19,6 @@ namespace NomNomNosh.API.Controllers
             _errorHandler = errorHandler;
         }
 
-        [Route("{member_id}")]
         [HttpPost]
         public async Task<ActionResult<RecipeDto>> CreateRecipe(Guid member_id, [FromBody] RecipeCreateRequest recipe)
         {
@@ -38,9 +37,9 @@ namespace NomNomNosh.API.Controllers
             }
         }
 
-        [Route("{member_id}/{recipe_id}")]
+        [Route("{recipe_id}")]
         [HttpPut]
-        public async Task<ActionResult<RecipeDto>> DeleteRecipe(Guid member_id, Guid recipe_id, [FromBody] RecipeCreateRequest recipe)
+        public async Task<ActionResult<RecipeDto>> DeleteRecipe(Guid member_id, Guid recipe_id, [FromBody] RecipeUpdateRequest recipe)
         {
             try
             {
@@ -57,7 +56,7 @@ namespace NomNomNosh.API.Controllers
             }
         }
 
-        [Route("{member_id}/{recipe_id}")]
+        [Route("{recipe_id}")]
         [HttpDelete]
         public async Task<ActionResult<RecipeDto>> DeleteRecipe(Guid member_id, Guid recipe_id)
         {

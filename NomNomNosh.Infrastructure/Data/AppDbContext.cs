@@ -115,7 +115,7 @@ namespace NomNomNosh.Infrastructure.Data
                 rss.HasKey(rs => rs.RecipeStep_Id);
 
                 rss.Property(rs => rs.Title).IsRequired();
-                rss.Property(rs => rs.Description).IsRequired();
+                rss.Property(rs => rs.Content).IsRequired();
                 rss.Property(rs => rs.Recipe_Id).IsRequired();
 
                 // Relationships

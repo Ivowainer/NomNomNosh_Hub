@@ -54,6 +54,7 @@ namespace NomNomNosh.Infrastructure.Repositories
                 Title = recipeToUpdate.Title,
                 Description = recipeToUpdate.Description,
                 Main_Image = recipeToUpdate.Main_Image,
+                Published_Date = recipe.Published_Date,
             };
         }
 
