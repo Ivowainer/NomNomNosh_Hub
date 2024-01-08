@@ -19,8 +19,13 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("NomNomNosh.API"))
 );
 
+// Services & Repo
 builder.Services.AddScoped<IMemberRepository, MemberRepository>();
 builder.Services.AddScoped<IMemberService, MemberService>();
+builder.Services.AddScoped<IRecipeRepository, RecipeRepository>();
+builder.Services.AddScoped<IRecipeService, RecipeService>();
+
+// Utils DI
 builder.Services.AddScoped<IEmailValidator, EmailValidator>();
 builder.Services.AddSingleton<IErrorHandler, ErrorHandler>();
 

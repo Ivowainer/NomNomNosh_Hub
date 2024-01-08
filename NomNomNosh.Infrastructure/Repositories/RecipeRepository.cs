@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using NomNomNosh.Application.DTOs;
 using NomNomNosh.Application.Interfaces;
 using NomNomNosh.Domain.Entities;
@@ -15,6 +16,9 @@ namespace NomNomNosh.Infrastructure.Repositories
 
         public async Task<RecipeDto> CreateRecipe(Guid member_id, Recipe recipe)
         {
+            if (!_appDbContext.Members.Any(m => m.Member_Id == member_id))
+                throw new InvalidOperationException("Member not found");
+
             recipe.Member_Id = member_id;
             recipe.Average_Rating = 0;
             recipe.Published_Date = DateTime.Now;

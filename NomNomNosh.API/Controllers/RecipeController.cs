@@ -1,15 +1,41 @@
 using Microsoft.AspNetCore.Mvc;
+using NomNomNosh.API.Config;
 using NomNomNosh.Application.DTOs;
+
+using NomNomNosh.Application.Interfaces;
+using NomNomNosh.Application.Request.Recipe;
+using NomNomNosh.Domain.Entities;
 
 namespace NomNomNosh.API.Controllers
 {
     [Route("[controller]")]
-    public class Recipe : Controller
+    public class RecipeController : Controller
     {
-        [HttpGet]
-        public async Task<ActionResult<RecipeDto>> CreateRecipe(Guid member_id)
+        private readonly IRecipeService _recipeService;
+        private readonly IErrorHandler _errorHandler;
+        public RecipeController(IRecipeService recipeService, IErrorHandler errorHandler)
         {
-            throw new NotImplementedException();
+            _recipeService = recipeService;
+            _errorHandler = errorHandler;
+        }
+
+        [Route("{member_id}")]
+        [HttpPost]
+        public async Task<ActionResult<RecipeDto>> CreateRecipe(Guid member_id, [FromBody] RecipeCreateRequest recipe)
+        {
+            try
+            {
+                return await _recipeService.CreateRecipe(member_id, new Recipe
+                {
+                    Title = recipe.Title,
+                    Main_Image = recipe.Main_Image,
+                    Description = recipe.Description
+                });
+            }
+            catch (Exception ex)
+            {
+                return _errorHandler.HandleError(ex);
+            }
         }
     }
 }

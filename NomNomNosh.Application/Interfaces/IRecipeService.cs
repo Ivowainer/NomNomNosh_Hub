@@ -5,6 +5,8 @@ namespace NomNomNosh.Application.Interfaces
 {
     public interface IRecipeService
     {
-        public Task<RecipeDto> CreateRecipe(Guid member_id, Recipe recipe);
+        Task<RecipeDto> CreateRecipe(Guid member_id, Recipe recipe);
+        Task<RecipeDto> UpdateRecipe(Guid recipe_id);
+        Task<RecipeDto> DeleteRecipe(Guid recipe_id);
     }
 }

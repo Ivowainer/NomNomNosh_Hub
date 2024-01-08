@@ -44,7 +44,7 @@ namespace NomNomNosh.API.Controllers
 
         [Route("login")]
         [HttpPost]
-        public async Task<ActionResult<MemberDto>> LoginMember([FromBody] MemberRegistrationRequest req)
+        public async Task<ActionResult<MemberDto>> LoginMember([FromBody] MemberLoginRequest req)
         {
             try
             {
