@@ -7,7 +7,7 @@ using NomNomNosh.Domain.Entities;
 
 namespace NomNomNosh.API.Controllers
 {
-    [Route("api/member/{member_id}/{recipe_id}/step")]
+    [Route("api/member/{member_id}/recipe/{recipe_id}/step")]
     public class RecipeStepController : Controller
     {
         private readonly IRecipeStepService _recipeStepService;

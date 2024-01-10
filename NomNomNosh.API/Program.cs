@@ -30,6 +30,9 @@ builder.Services.AddScoped<IRecipeService, RecipeService>();
 builder.Services.AddScoped<IRecipeStepRepository, RecipeStepRepository>();
 builder.Services.AddScoped<IRecipeStepService, RecipeStepService>();
 
+builder.Services.AddScoped<IRecipeCommentRepository, RecipeCommentRepository>();
+builder.Services.AddScoped<IRecipeCommentService, RecipeCommentService>();
+
 // Utils DI
 builder.Services.AddSingleton<IErrorHandler, ErrorHandler>();
 builder.Services.AddScoped<IUtils, Utils>();
