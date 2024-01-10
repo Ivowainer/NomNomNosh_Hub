@@ -26,7 +26,7 @@ namespace NomNomNosh.API.Controllers
                 return await _recipeStepService.CreateRecipeStep(recipe_id, member_id, new RecipeStep
                 {
                     Title = recipeStep.Title,
-                    Content = recipeStep.Content
+                    RecipeStep_Content = recipeStep.RecipeStep_Content
                 });
             }
             catch (Exception ex)

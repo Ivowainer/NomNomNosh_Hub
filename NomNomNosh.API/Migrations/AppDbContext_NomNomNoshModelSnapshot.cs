@@ -190,7 +190,7 @@ namespace NomNomNosh.API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Description")
+                    b.Property<string>("RecipeStep_Content")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

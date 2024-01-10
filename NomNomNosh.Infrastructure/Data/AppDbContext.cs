@@ -115,14 +115,14 @@ namespace NomNomNosh.Infrastructure.Data
                 rss.HasKey(rs => rs.RecipeStep_Id);
 
                 rss.Property(rs => rs.Title).IsRequired();
-                rss.Property(rs => rs.Content).IsRequired();
+                rss.Property(rs => rs.RecipeStep_Content).IsRequired();
                 rss.Property(rs => rs.Recipe_Id).IsRequired();
 
                 // Relationships
                 rss.HasOne(rs => rs.Recipe)
                     .WithMany(r => r.RecipeSteps)
                     .HasForeignKey(rs => rs.Recipe_Id)
-                    .OnDelete(DeleteBehavior.NoAction);
+                    .OnDelete(DeleteBehavior.Cascade);
             });
 
             // RecipeSaved

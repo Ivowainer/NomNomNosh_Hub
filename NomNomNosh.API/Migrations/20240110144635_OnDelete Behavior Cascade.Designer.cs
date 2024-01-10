@@ -12,8 +12,8 @@ using NomNomNosh.Infrastructure.Data;
 namespace NomNomNosh.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240108213558_Description to Content in RecipeStep")]
-    partial class DescriptiontoContentinRecipeStep
+    [Migration("20240110144635_OnDelete Behavior Cascade")]
+    partial class OnDeleteBehaviorCascade
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -110,7 +110,8 @@ namespace NomNomNosh.API.Migrations
                     b.Property<DateTime>("RecipeComment_Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("Recipe_Id")
+                    b.Property<Guid?>("Recipe_Id")
+                        .IsRequired()
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("RecipeComment_Id");
@@ -193,7 +194,7 @@ namespace NomNomNosh.API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Content")
+                    b.Property<string>("RecipeStep_Content")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -295,7 +296,7 @@ namespace NomNomNosh.API.Migrations
                     b.HasOne("NomNomNosh.Domain.Entities.Recipe", "Recipe")
                         .WithMany("RecipeSteps")
                         .HasForeignKey("Recipe_Id")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Recipe");

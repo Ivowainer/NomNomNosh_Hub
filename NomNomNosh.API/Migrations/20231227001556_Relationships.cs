@@ -111,7 +111,7 @@ namespace NomNomNosh.API.Migrations
                     RecipeStep_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Recipe_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    RecipeStep_Content = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
