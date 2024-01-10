@@ -25,6 +25,7 @@ namespace NomNomNosh.Infrastructure.Repositories
 
             return new RecipeStepDto
             {
+                RecipeStep_Id = recipeStep.RecipeStep_Id,
                 Title = recipeStep.Title,
                 RecipeStep_Content = recipeStep.RecipeStep_Content
             };
@@ -38,16 +39,32 @@ namespace NomNomNosh.Infrastructure.Repositories
             recipeStepToUpdate.Title = recipeStep.Title;
             recipeStepToUpdate.RecipeStep_Content = recipeStep.RecipeStep_Content;
 
+            await _appDbContext.SaveChangesAsync();
+
             return new RecipeStepDto
             {
+                RecipeStep_Id = recipeStepToUpdate.RecipeStep_Id,
                 Title = recipeStepToUpdate.Title,
                 RecipeStep_Content = recipeStepToUpdate.RecipeStep_Content,
             };
         }
 
-        public Task<RecipeStepDto> DeleteRecipeStep(Guid recipe_id, Guid member_id, Guid recipeStep_id, RecipeStep recipeStep)
+        public async Task<RecipeStepDto> DeleteRecipeStep(Guid recipe_id, Guid member_id, Guid recipeStep_id)
         {
-            throw new NotImplementedException();
+            await _utils.GetRecipeIfOwner(recipe_id, member_id);
+
+            var recipeStep = await _appDbContext.RecipeSteps.FindAsync(recipeStep_id) ?? throw new InvalidOperationException("Recipe step not found");
+
+            _appDbContext.RecipeSteps.Remove(recipeStep);
+
+            await _appDbContext.SaveChangesAsync();
+            return new RecipeStepDto
+            {
+                Title = recipeStep.Title,
+                Recipe_Id = recipeStep.Recipe_Id,
+                RecipeStep_Content = recipeStep.RecipeStep_Content,
+                RecipeStep_Id = recipeStep.RecipeStep_Id
+            };
         }
 
     }

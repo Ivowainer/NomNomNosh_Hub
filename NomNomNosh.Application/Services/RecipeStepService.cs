@@ -34,7 +34,7 @@ namespace NomNomNosh.Application.Services
 
         public async Task<RecipeStepDto> DeleteRecipeStep(Guid recipe_id, Guid member_id, Guid recipeStep_id)
         {
-            throw new NotImplementedException();
+            return await _recipeStepRepository.DeleteRecipeStep(recipe_id, member_id, recipeStep_id);
         }
 
     }

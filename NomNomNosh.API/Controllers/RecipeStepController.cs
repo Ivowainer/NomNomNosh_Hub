@@ -34,5 +34,37 @@ namespace NomNomNosh.API.Controllers
                 return _errorHandler.HandleError(ex);
             }
         }
+
+        [Route("{recipeStep_id}")]
+        [HttpPut]
+        public async Task<ActionResult<RecipeStepDto>> UpdateRecipeStep(Guid recipe_id, Guid member_id, Guid recipeStep_id, [FromBody] RecipeStepUpdateRequest recipeStep)
+        {
+            try
+            {
+                return await _recipeStepService.UpdateRecipeStep(recipe_id, member_id, recipeStep_id, new RecipeStep
+                {
+                    Title = recipeStep.Title,
+                    RecipeStep_Content = recipeStep.RecipeStep_Content
+                });
+            }
+            catch (Exception ex)
+            {
+                return _errorHandler.HandleError(ex);
+            }
+        }
+
+        [Route("{recipeStep_id}")]
+        [HttpDelete]
+        public async Task<ActionResult<RecipeStepDto>> DeleteRecipeStep(Guid recipe_id, Guid member_id, Guid recipeStep_id)
+        {
+            try
+            {
+                return await _recipeStepService.DeleteRecipeStep(recipe_id, member_id, recipeStep_id);
+            }
+            catch (Exception ex)
+            {
+                return _errorHandler.HandleError(ex);
+            }
+        }
     }
 }
