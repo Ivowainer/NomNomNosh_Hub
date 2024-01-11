@@ -49,6 +49,11 @@ namespace NomNomNosh.Application.Services
             return newMember;
         }
 
+        public async Task<Member> GetMember(Guid member_id)
+        {
+            return await _memberRepository.GetMember(member_id);
+        }
+
         // Utils 
         public bool IsValidEmail(string email)
         {

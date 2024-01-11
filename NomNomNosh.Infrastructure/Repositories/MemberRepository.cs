@@ -58,5 +58,10 @@ namespace NomNomNosh.Infrastructure.Repositories
         {
             return await _appDbContext.Members.AnyAsync(m => m.Username == username || m.Email == email);
         }
+
+        public async Task<Member> GetMember(Guid member_id)
+        {
+            return _appDbContext.Members.Include(m => m.Recipes).FirstOrDefault(m => m.Member_Id == member_id) ?? throw new InvalidOperationException("Member not found");
+        }
     }
 }

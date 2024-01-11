@@ -55,5 +55,19 @@ namespace NomNomNosh.API.Controllers
                 return _errorHandler.HandleError(ex);
             }
         }
+
+        [Route("{member_id}")]
+        [HttpPost]
+        public async Task<ActionResult<Member>> GetMember(Guid member_id)
+        {
+            try
+            {
+                return await _memberService.GetMember(member_id);
+            }
+            catch (Exception ex)
+            {
+                return _errorHandler.HandleError(ex);
+            }
+        }
     }
 }

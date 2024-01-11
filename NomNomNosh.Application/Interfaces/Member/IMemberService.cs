@@ -7,5 +7,6 @@ namespace NomNomNosh.Application.Interfaces
     {
         public Task<MemberDto> LoginMember(string email, string password);
         public Task<MemberDto> RegisterMember(Member member);
+        public Task<Member> GetMember(Guid member_id);
     }
 }
