@@ -62,12 +62,13 @@ namespace NomNomNosh.Infrastructure.Data
                 // Relationships
                 rcs.HasOne(rc => rc.Member)
                     .WithMany(m => m.RecipeComments)
-                    .HasForeignKey(rc => rc.Member_Id);
+                    .HasForeignKey(rc => rc.Member_Id)
+                    .OnDelete(DeleteBehavior.NoAction);
 
                 rcs.HasOne(rc => rc.Recipe)
                     .WithMany(r => r.RecipeComments)
                     .HasForeignKey(rc => rc.Recipe_Id)
-                    .OnDelete(DeleteBehavior.NoAction);
+                    .OnDelete(DeleteBehavior.Cascade);
             });
 
             // RecipeRate

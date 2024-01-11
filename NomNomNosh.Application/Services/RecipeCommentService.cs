@@ -17,9 +17,9 @@ namespace NomNomNosh.Application.Services
             return await _recipeCommentRepository.CreateRecipeComment(member_id, recipe_id, recipeComment);
         }
 
-        public Task<RecipeCommentDto> DeleteRecipeComment(Guid member_id, Guid recipe_id)
+        public async Task<RecipeCommentDto> DeleteRecipeComment(Guid member_id, Guid recipe_id, Guid recipeComment_id)
         {
-            throw new NotImplementedException();
+            return await _recipeCommentRepository.DeleteRecipeComment(member_id, recipe_id, recipeComment_id);
         }
     }
 }

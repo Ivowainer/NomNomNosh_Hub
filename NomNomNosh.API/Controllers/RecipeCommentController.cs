@@ -33,5 +33,19 @@ namespace NomNomNosh.API.Controllers
                 return _errorHandler.HandleError(ex);
             }
         }
+
+        [Route("{recipeComment_id}")]
+        [HttpDelete]
+        public async Task<ActionResult<RecipeCommentDto>> CreateRecipeComment(Guid member_id, Guid recipe_id, Guid recipeComment_id)
+        {
+            try
+            {
+                return await _recipeCommentService.DeleteRecipeComment(member_id, recipe_id, recipeComment_id);
+            }
+            catch (Exception ex)
+            {
+                return _errorHandler.HandleError(ex);
+            }
+        }
     }
 }

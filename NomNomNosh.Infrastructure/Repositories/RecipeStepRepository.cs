@@ -27,7 +27,7 @@ namespace NomNomNosh.Infrastructure.Repositories
             {
                 RecipeStep_Id = recipeStep.RecipeStep_Id,
                 Title = recipeStep.Title,
-                RecipeStep_Content = recipeStep.RecipeStep_Content
+                RecipeStep_Content = recipeStep.RecipeStep_Content,
             };
         }
 

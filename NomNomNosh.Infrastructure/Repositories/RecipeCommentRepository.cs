@@ -41,9 +41,25 @@ namespace NomNomNosh.Infrastructure.Repositories
             };
         }
 
-        public Task<RecipeCommentDto> DeleteRecipeComment(Guid member_id, Guid recipe_id, Guid recipeComment_id)
+        public async Task<RecipeCommentDto> DeleteRecipeComment(Guid member_id, Guid recipe_id, Guid recipeComment_id)
         {
-            throw new NotImplementedException();
+            if (!await _appDbContext.Recipes.AnyAsync(r => r.Recipe_Id == recipe_id))
+                throw new InvalidOperationException("Recipe not found");
+            if (!await _appDbContext.Members.AnyAsync(m => m.Member_Id == member_id))
+                throw new InvalidOperationException("Member not found");
+
+            var recipeComment = await _appDbContext.RecipeComments.FindAsync(recipeComment_id) ?? throw new InvalidOperationException("Recipe Comment not found");
+            _appDbContext.Remove(recipeComment);
+            await _appDbContext.SaveChangesAsync();
+
+            return new RecipeCommentDto
+            {
+                RecipeComment_Id = recipeComment_id,
+                Member_Id = member_id,
+                Recipe_Id = recipe_id,
+                RecipeComment_Content = recipeComment.RecipeComment_Content,
+                RecipeComment_Date = recipeComment.RecipeComment_Date
+            };
         }
     }
 }
