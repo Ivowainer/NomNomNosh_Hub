@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 using NomNomNosh.API.Config;
 using NomNomNosh.Application.Interfaces;
@@ -36,6 +37,8 @@ builder.Services.AddScoped<IRecipeCommentService, RecipeCommentService>();
 // Utils DI
 builder.Services.AddSingleton<IErrorHandler, ErrorHandler>();
 builder.Services.AddScoped<IUtils, Utils>();
+
+builder.Services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 var app = builder.Build();
 

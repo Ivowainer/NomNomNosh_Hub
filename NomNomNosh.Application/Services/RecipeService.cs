@@ -26,6 +26,11 @@ namespace NomNomNosh.Application.Services
             return newRecipe;
         }
 
+        public async Task<Recipe> GetRecipe(Guid recipe_id)
+        {
+            return await _recipeRepository.GetRecipe(recipe_id);
+        }
+
         public async Task<RecipeDto> UpdateRecipe(Guid recipe_id, Guid member_id, Recipe recipe)
         {
             if (recipe.Title.Length < 6)

@@ -38,6 +38,20 @@ namespace NomNomNosh.API.Controllers
         }
 
         [Route("{recipe_id}")]
+        [HttpGet]
+        public async Task<ActionResult<Recipe>> GetRecipe(Guid recipe_id)
+        {
+            try
+            {
+                return await _recipeService.GetRecipe(recipe_id);
+            }
+            catch (Exception ex)
+            {
+                return _errorHandler.HandleError(ex);
+            }
+        }
+
+        [Route("{recipe_id}")]
         [HttpPut]
         public async Task<ActionResult<RecipeDto>> DeleteRecipe(Guid member_id, Guid recipe_id, [FromBody] RecipeUpdateRequest recipe)
         {

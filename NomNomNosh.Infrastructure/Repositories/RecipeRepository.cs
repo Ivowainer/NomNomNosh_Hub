@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using NomNomNosh.Application.DTOs;
 using NomNomNosh.Application.Interfaces;
 using NomNomNosh.Domain.Entities;
@@ -41,6 +42,16 @@ namespace NomNomNosh.Infrastructure.Repositories
             };
         }
 
+        public async Task<Recipe> GetRecipe(Guid recipe_id)
+        {
+            var recipe = _appDbContext.Recipes
+                                    .Include(rc => rc.RecipeSteps)
+                                    .Include(rc => rc.RecipeComments)
+                                    .FirstOrDefault(rc => rc.Recipe_Id == recipe_id)
+                                    ?? throw new InvalidOperationException("Recipe not found");
+
+            return recipe;
+        }
 
         public async Task<RecipeDto> UpdateRecipe(Guid recipe_id, Guid member_id, Recipe recipe)
         {
