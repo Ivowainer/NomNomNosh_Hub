@@ -48,6 +48,8 @@ namespace NomNomNosh.Infrastructure.Repositories
             if (!await _appDbContext.Members.AnyAsync(m => m.Member_Id == member_id))
                 throw new InvalidOperationException("Member not found");
 
+            var recipe = await _utils.GetRecipeIfOwner(recipe_id, member_id);
+
             var recipeComment = await _appDbContext.RecipeComments.FindAsync(recipeComment_id) ?? throw new InvalidOperationException("Recipe Comment not found");
             _appDbContext.Remove(recipeComment);
             await _appDbContext.SaveChangesAsync();

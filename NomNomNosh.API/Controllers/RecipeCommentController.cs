@@ -1,50 +1,65 @@
 using Microsoft.AspNetCore.Mvc;
-using NomNomNosh.API.Config.ErrorHandler;
+
 using NomNomNosh.Application.DTOs;
 using NomNomNosh.Application.Interfaces;
+
+using NomNomNosh.API.Config.ErrorHandler;
 using NomNomNosh.API.Request.RecipeComment;
+using NomNomNosh.API.Config.Auth;
+
 using NomNomNosh.Domain.Entities;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using NomNomNosh.API.Config.Filter;
+using NomNomNosh.API.Config.Response;
 
 namespace NomNomNosh.API.Controllers
 {
-    [Route("api/member/{member_id}/recipe/{recipe_id}/comment")]
+    [Route("api/recipe/{recipe_id}/comment")]
     public class RecipeCommentController : Controller
     {
         private readonly IRecipeCommentService _recipeCommentService;
         private readonly IErrorHandler _errorHandler;
-        public RecipeCommentController(IRecipeCommentService recipeCommentService, IErrorHandler errorHandler)
+        private readonly IAuthService _authService;
+        public RecipeCommentController(IRecipeCommentService recipeCommentService, IErrorHandler errorHandler, IAuthService authService)
         {
             _recipeCommentService = recipeCommentService;
             _errorHandler = errorHandler;
+            _authService = authService;
         }
 
         [HttpPost]
-        public async Task<ActionResult<RecipeCommentDto>> CreateRecipeComment(Guid member_id, Guid recipe_id, [FromBody] RecipeCommentCreateRequest recipeComment)
+        [TypeFilter(typeof(AuthorizationFilter))]
+        public async Task<ActionResult<RecipeCommentDto>> CreateRecipeComment(Guid recipe_id, [FromBody] RecipeCommentCreateRequest recipeComment)
         {
             try
             {
-                return await _recipeCommentService.CreateRecipeComment(member_id, recipe_id, new RecipeComment
+                var member = _authService.DecodeToken(HttpContext);
+
+                return Json(await _recipeCommentService.CreateRecipeComment(member.Member_Id, recipe_id, new RecipeComment
                 {
                     RecipeComment_Content = recipeComment.RecipeComment_Content
-                });
+                }));
             }
             catch (Exception ex)
             {
-                return _errorHandler.HandleError(ex);
+                return Json(_errorHandler.HandleError(ex));
             }
         }
 
         [Route("{recipeComment_id}")]
         [HttpDelete]
-        public async Task<ActionResult<RecipeCommentDto>> CreateRecipeComment(Guid member_id, Guid recipe_id, Guid recipeComment_id)
+        [TypeFilter(typeof(AuthorizationFilter))]
+        public async Task<ActionResult<RecipeCommentDto>> DeleteRecipeComment(Guid recipe_id, Guid recipeComment_id)
         {
             try
             {
-                return await _recipeCommentService.DeleteRecipeComment(member_id, recipe_id, recipeComment_id);
+                var member = _authService.DecodeToken(HttpContext);
+
+                return await _recipeCommentService.DeleteRecipeComment(member.Member_Id, recipe_id, recipeComment_id);
             }
             catch (Exception ex)
             {
-                return _errorHandler.HandleError(ex);
+                return Json(_errorHandler.HandleError(ex));
             }
         }
     }

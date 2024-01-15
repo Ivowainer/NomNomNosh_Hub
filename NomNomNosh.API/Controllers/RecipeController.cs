@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using NomNomNosh.API.Config.ErrorHandler;
 using NomNomNosh.Application.DTOs;
 
+using NomNomNosh.API.Config.Filter;
+
 using NomNomNosh.Application.Interfaces;
 using NomNomNosh.API.Request.Recipe;
 using NomNomNosh.Domain.Entities;
@@ -23,6 +25,7 @@ namespace NomNomNosh.API.Controllers
         }
 
         [HttpPost]
+        [TypeFilter(typeof(AuthorizationFilter))]
         public async Task<ActionResult<RecipeDto>> CreateRecipe([FromBody] RecipeCreateRequest recipe)
         {
             try
@@ -38,7 +41,7 @@ namespace NomNomNosh.API.Controllers
             }
             catch (Exception ex)
             {
-                return _errorHandler.HandleError(ex);
+                return Json(_errorHandler.HandleError(ex));
             }
         }
 
@@ -51,12 +54,13 @@ namespace NomNomNosh.API.Controllers
             }
             catch (Exception ex)
             {
-                return _errorHandler.HandleError(ex);
+                return Json(_errorHandler.HandleError(ex));
             }
         }
 
         [Route("{recipe_id}")]
         [HttpGet]
+        [TypeFilter(typeof(AuthorizationFilter))]
         public async Task<ActionResult<Recipe>> GetRecipe(Guid recipe_id)
         {
             try
@@ -65,13 +69,14 @@ namespace NomNomNosh.API.Controllers
             }
             catch (Exception ex)
             {
-                return _errorHandler.HandleError(ex);
+                return Json(_errorHandler.HandleError(ex));
             }
         }
 
         [Route("{recipe_id}")]
         [HttpPut]
-        public async Task<ActionResult<RecipeDto>> DeleteRecipe(Guid recipe_id, [FromBody] RecipeUpdateRequest recipe)
+        [TypeFilter(typeof(AuthorizationFilter))]
+        public async Task<ActionResult<RecipeDto>> UpdateRecipe(Guid recipe_id, [FromBody] RecipeUpdateRequest recipe)
         {
             try
             {
@@ -86,12 +91,13 @@ namespace NomNomNosh.API.Controllers
             }
             catch (Exception ex)
             {
-                return _errorHandler.HandleError(ex);
+                return Json(_errorHandler.HandleError(ex));
             }
         }
 
         [Route("{recipe_id}")]
         [HttpDelete]
+        [TypeFilter(typeof(AuthorizationFilter))]
         public async Task<ActionResult<RecipeDto>> DeleteRecipe(Guid recipe_id)
         {
             try
@@ -102,7 +108,7 @@ namespace NomNomNosh.API.Controllers
             }
             catch (Exception ex)
             {
-                return _errorHandler.HandleError(ex);
+                return Json(_errorHandler.HandleError(ex));
             }
         }
     }
