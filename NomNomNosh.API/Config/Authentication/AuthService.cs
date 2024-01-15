@@ -56,13 +56,6 @@ namespace NomNomNosh.API.Config.Authentication
             var identity = httpContext.User.Identity as ClaimsIdentity ?? throw new InvalidOperationException("Identity have an error");
 
             var usersClaims = identity.Claims;
-            Console.WriteLine("===");
-            /* Console.WriteLine(httpContext.Request.Headers.Authorization); */
-            foreach (Claim claim in usersClaims)
-            {
-                Console.WriteLine($"Claim Type: {claim.Type}, Value: {claim.Value}");
-            }
-            Console.WriteLine("===");
 
             return new MemberDto
             {

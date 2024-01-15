@@ -9,7 +9,7 @@ using NomNomNosh.API.Config.Auth;
 
 namespace NomNomNosh.API.Controllers
 {
-    [Route("api/member/{member_id}/[controller]")]
+    [Route("api/[controller]")]
     public class RecipeController : Controller
     {
         private readonly IRecipeService _recipeService;
@@ -28,7 +28,6 @@ namespace NomNomNosh.API.Controllers
             try
             {
                 var member = _authService.DecodeToken(HttpContext);
-                Console.WriteLine(member.Member_Id);
 
                 return await _recipeService.CreateRecipe(member.Member_Id, new Recipe
                 {
@@ -72,11 +71,13 @@ namespace NomNomNosh.API.Controllers
 
         [Route("{recipe_id}")]
         [HttpPut]
-        public async Task<ActionResult<RecipeDto>> DeleteRecipe(Guid member_id, Guid recipe_id, [FromBody] RecipeUpdateRequest recipe)
+        public async Task<ActionResult<RecipeDto>> DeleteRecipe(Guid recipe_id, [FromBody] RecipeUpdateRequest recipe)
         {
             try
             {
-                return await _recipeService.UpdateRecipe(recipe_id, member_id, new Recipe
+                var member = _authService.DecodeToken(HttpContext);
+
+                return await _recipeService.UpdateRecipe(recipe_id, member.Member_Id, new Recipe
                 {
                     Title = recipe.Title,
                     Description = recipe.Description,
@@ -91,11 +92,13 @@ namespace NomNomNosh.API.Controllers
 
         [Route("{recipe_id}")]
         [HttpDelete]
-        public async Task<ActionResult<RecipeDto>> DeleteRecipe(Guid member_id, Guid recipe_id)
+        public async Task<ActionResult<RecipeDto>> DeleteRecipe(Guid recipe_id)
         {
             try
             {
-                return await _recipeService.DeleteRecipe(recipe_id, member_id);
+                var member = _authService.DecodeToken(HttpContext);
+
+                return await _recipeService.DeleteRecipe(recipe_id, member.Member_Id);
             }
             catch (Exception ex)
             {
