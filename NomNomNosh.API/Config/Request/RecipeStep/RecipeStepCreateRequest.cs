@@ -1,6 +1,6 @@
-namespace NomNomNosh.Application.Request.RecipeStep
+namespace NomNomNosh.API.Request.RecipeStep
 {
-    public class RecipeStepUpdateRequest
+    public class RecipeStepCreateRequest
     {
         public string Title { get; set; }
         public string RecipeStep_Content { get; set; }

@@ -53,6 +53,22 @@ namespace NomNomNosh.Infrastructure.Repositories
             return recipe;
         }
 
+        public async Task<ICollection<RecipeDto>> GetRecipes()
+        {
+            var recipes = await _appDbContext.Recipes.ToListAsync();
+
+            return recipes.Select(recipe => new RecipeDto
+            {
+                Recipe_Id = recipe.Recipe_Id,
+                Member_Id = recipe.Member_Id,
+                Title = recipe.Title,
+                Published_Date = recipe.Published_Date,
+                Main_Image = recipe.Main_Image,
+                Average_Rating = recipe.Average_Rating,
+                Description = recipe.Description
+            }).ToList();
+        }
+
         public async Task<RecipeDto> UpdateRecipe(Guid recipe_id, Guid member_id, Recipe recipe)
         {
             var recipeToUpdate = await _utils.GetRecipeIfOwner(recipe_id, member_id);

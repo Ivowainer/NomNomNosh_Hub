@@ -1,6 +1,6 @@
-namespace NomNomNosh.Application.Request.Recipe
+namespace NomNomNosh.API.Request.Recipe
 {
-    public class RecipeCreateRequest
+    public class RecipeUpdateRequest
     {
         public string Title { get; set; }
         public string Description { get; set; }

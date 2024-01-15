@@ -2,10 +2,15 @@ using Microsoft.AspNetCore.Mvc;
 
 using NomNomNosh.Domain.Entities;
 
-using NomNomNosh.Application.Request.Member;
 using NomNomNosh.Application.DTOs;
 using NomNomNosh.Application.Interfaces;
-using NomNomNosh.API.Config;
+
+using NomNomNosh.API.Request.Member;
+using NomNomNosh.API.Config.ErrorHandler;
+
+using Microsoft.AspNetCore.Authentication;
+using NomNomNosh.API.Config.Response.Member;
+using NomNomNosh.API.Config.Auth;
 
 namespace NomNomNosh.API.Controllers
 {
@@ -14,19 +19,22 @@ namespace NomNomNosh.API.Controllers
     {
         private readonly IMemberService _memberService;
         private readonly IErrorHandler _errorHandler;
+        private readonly IAuthService _authService;
 
-        public MemberController(IMemberService memberService, IErrorHandler errorHandler)
+        public MemberController(IMemberService memberService, IErrorHandler errorHandler, IAuthService authService)
         {
             _memberService = memberService;
             _errorHandler = errorHandler;
+            _authService = authService;
         }
 
         [HttpPost]
-        public async Task<ActionResult<MemberDto>> RegisterMember([FromBody] MemberRegistrationRequest member)
+        public async Task<ActionResult<MemberLoginResponse>> RegisterMember([FromBody] MemberRegistrationRequest member)
         {
             try
             {
-                return await _memberService.RegisterMember(new Member
+
+                var newMember = await _memberService.RegisterMember(new Member
                 {
                     Email = member.Email,
                     First_Name = member.First_Name,
@@ -35,6 +43,14 @@ namespace NomNomNosh.API.Controllers
                     Profile_Image = member.Profile_Image!,
                     Username = member.Username
                 });
+
+                var token = _authService.GenerateToken(newMember);
+
+                return new MemberLoginResponse
+                {
+                    member = newMember,
+                    token = token
+                };
             }
             catch (Exception ex)
             {
@@ -44,11 +60,18 @@ namespace NomNomNosh.API.Controllers
 
         [Route("login")]
         [HttpPost]
-        public async Task<ActionResult<MemberDto>> LoginMember([FromBody] MemberLoginRequest req)
+        public async Task<ActionResult<MemberLoginResponse>> LoginMember([FromBody] MemberLoginRequest req)
         {
             try
             {
-                return await _memberService.LoginMember(req.Email, req.Password);
+                var member = await _memberService.LoginMember(req.Email, req.Password);
+                var token = _authService.GenerateToken(member);
+
+                return new MemberLoginResponse
+                {
+                    member = member,
+                    token = token
+                };
             }
             catch (Exception ex)
             {

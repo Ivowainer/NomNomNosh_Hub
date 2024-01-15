@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace NomNomNosh.API.Config
+namespace NomNomNosh.API.Config.ErrorHandler
 {
     public interface IErrorHandler
     {

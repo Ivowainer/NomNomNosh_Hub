@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
-namespace NomNomNosh.API.Config
+namespace NomNomNosh.API.Config.ErrorHandler
 {
     public class ErrorHandler : IErrorHandler
     {

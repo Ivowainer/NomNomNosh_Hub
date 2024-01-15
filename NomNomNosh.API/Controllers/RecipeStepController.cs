@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-using NomNomNosh.API.Config;
+using NomNomNosh.API.Config.ErrorHandler;
 using NomNomNosh.Application.DTOs;
 using NomNomNosh.Application.Interfaces;
-using NomNomNosh.Application.Request.RecipeStep;
+using NomNomNosh.API.Request.RecipeStep;
 using NomNomNosh.Domain.Entities;
 
 namespace NomNomNosh.API.Controllers

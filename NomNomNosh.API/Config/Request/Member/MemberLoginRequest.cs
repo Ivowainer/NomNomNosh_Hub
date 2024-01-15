@@ -1,4 +1,4 @@
-namespace NomNomNosh.Application.Request.Member
+namespace NomNomNosh.API.Request.Member
 {
     public class MemberLoginRequest
     {

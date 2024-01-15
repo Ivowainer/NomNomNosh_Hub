@@ -1,10 +1,13 @@
 using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
-using NomNomNosh.API.Config;
+
+using NomNomNosh.API.Config.Auth;
+using NomNomNosh.API.Config.Authentication;
+using NomNomNosh.API.Config.ErrorHandler;
+
 using NomNomNosh.Application.Interfaces;
 using NomNomNosh.Application.Services;
-using NomNomNosh.Application.Utils;
-using NomNomNosh.Application.Utils.Interface;
+
 using NomNomNosh.Infrastructure.Data;
 using NomNomNosh.Infrastructure.Repositories;
 using NomNomNosh.Infrastructure.Utils;
@@ -22,6 +25,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 );
 
 // Services & Repo
+builder.Services.AddScoped<IAuthService, AuthService>();
+
 builder.Services.AddScoped<IMemberRepository, MemberRepository>();
 builder.Services.AddScoped<IMemberService, MemberService>();
 

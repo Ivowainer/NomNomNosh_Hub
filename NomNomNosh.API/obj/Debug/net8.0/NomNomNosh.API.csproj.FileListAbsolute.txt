@@ -143,3 +143,4 @@ C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.API\obj\Debug\net8.0\N
 C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.API\obj\Debug\net8.0\ref\NomNomNosh.API.dll
 C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.API\bin\Debug\net8.0\BCrypt.Net-Next.dll
 C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.API\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\ivanc\Documents\Github\NomNomNosh_Hub\NomNomNosh.API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

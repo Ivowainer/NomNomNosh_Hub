@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
-using NomNomNosh.API.Config;
+using NomNomNosh.API.Config.ErrorHandler;
 using NomNomNosh.Application.DTOs;
 
 using NomNomNosh.Application.Interfaces;
-using NomNomNosh.Application.Request.Recipe;
+using NomNomNosh.API.Request.Recipe;
 using NomNomNosh.Domain.Entities;
 
 namespace NomNomNosh.API.Controllers
@@ -30,6 +30,19 @@ namespace NomNomNosh.API.Controllers
                     Main_Image = recipe.Main_Image,
                     Description = recipe.Description
                 });
+            }
+            catch (Exception ex)
+            {
+                return _errorHandler.HandleError(ex);
+            }
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<ICollection<RecipeDto>>> GetRecipes()
+        {
+            try
+            {
+                return Ok(await _recipeService.GetRecipes());
             }
             catch (Exception ex)
             {

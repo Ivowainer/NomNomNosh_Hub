@@ -1,4 +1,4 @@
-namespace NomNomNosh.Application.Request.RecipeComment
+namespace NomNomNosh.API.Request.RecipeComment
 {
     public class RecipeCommentCreateRequest
     {
