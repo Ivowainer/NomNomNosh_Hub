@@ -63,6 +63,7 @@ namespace NomNomNosh.Infrastructure.Data
                 rcs.HasOne(rc => rc.Member)
                     .WithMany(m => m.RecipeComments)
                     .HasForeignKey(rc => rc.Member_Id)
+                    // TODO: DELETE FIRST THE MEMBER WITH NOT DEPENDENCIES W/ RECIPECOMMENTS
                     .OnDelete(DeleteBehavior.NoAction);
 
                 rcs.HasOne(rc => rc.Recipe)
