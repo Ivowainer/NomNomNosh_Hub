@@ -5,6 +5,7 @@ using NomNomNosh.Application.DTOs;
 using NomNomNosh.Application.Interfaces;
 using NomNomNosh.API.Request.Recipe;
 using NomNomNosh.Domain.Entities;
+using NomNomNosh.API.Config.Auth;
 
 namespace NomNomNosh.API.Controllers
 {
@@ -13,18 +14,23 @@ namespace NomNomNosh.API.Controllers
     {
         private readonly IRecipeService _recipeService;
         private readonly IErrorHandler _errorHandler;
-        public RecipeController(IRecipeService recipeService, IErrorHandler errorHandler)
+        private readonly IAuthService _authService;
+        public RecipeController(IRecipeService recipeService, IErrorHandler errorHandler, IAuthService authService)
         {
             _recipeService = recipeService;
             _errorHandler = errorHandler;
+            _authService = authService;
         }
 
         [HttpPost]
-        public async Task<ActionResult<RecipeDto>> CreateRecipe(Guid member_id, [FromBody] RecipeCreateRequest recipe)
+        public async Task<ActionResult<RecipeDto>> CreateRecipe([FromBody] RecipeCreateRequest recipe)
         {
             try
             {
-                return await _recipeService.CreateRecipe(member_id, new Recipe
+                var member = _authService.DecodeToken(HttpContext);
+                Console.WriteLine(member.Member_Id);
+
+                return await _recipeService.CreateRecipe(member.Member_Id, new Recipe
                 {
                     Title = recipe.Title,
                     Main_Image = recipe.Main_Image,
