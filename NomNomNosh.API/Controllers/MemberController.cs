@@ -54,7 +54,7 @@ namespace NomNomNosh.API.Controllers
             }
             catch (Exception ex)
             {
-                return _errorHandler.HandleError(ex);
+                return Json(_errorHandler.HandleError(ex));
             }
         }
 
@@ -75,7 +75,7 @@ namespace NomNomNosh.API.Controllers
             }
             catch (Exception ex)
             {
-                return _errorHandler.HandleError(ex);
+                return Json(_errorHandler.HandleError(ex));
             }
         }
 
@@ -89,7 +89,7 @@ namespace NomNomNosh.API.Controllers
             }
             catch (Exception ex)
             {
-                return _errorHandler.HandleError(ex);
+                return Json(_errorHandler.HandleError(ex));
             }
         }
     }

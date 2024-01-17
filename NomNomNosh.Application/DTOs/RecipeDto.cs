@@ -9,5 +9,6 @@ namespace NomNomNosh.Application.DTOs
         public DateTime Published_Date { get; set; }
         public string Main_Image { get; set; }
         public decimal Average_Rating { get; set; }
+        public string Slug { get; set; }
     }
 }

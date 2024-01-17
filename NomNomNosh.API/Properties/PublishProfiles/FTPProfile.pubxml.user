@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAATqmR/k3YhECKXJe+eJVnvwAAAAACAAAAAAAQZgAAAAEAACAAAACC7Q3Bgz/HTDv6AEfywZkV9FIKR8EGpksZF7KJLyQp3gAAAAAOgAAAAAIAACAAAACrfNqodNmD4NgTl4zTO2w4Uqh52tKCrxV9IiAn2pMPhCAAAACbL2bxh1pB/LLohaWuMRmw8a5EjUC0JZLMADmKQlpSdUAAAACwz0Dg2vlnRlwCeHi0ETQOWBLLDY2GTvomU7qfdB4vee0uTy7BwW00lqNNsbaiEmDPGZOH8ymM7OucXEuzHjgR</EncryptedPassword>
+    <_PublishTargetUrl>ftp://nomnomnush.somee.com/www.nomnomnush.somee.com</_PublishTargetUrl>
+    <History>True|2024-01-15T22:54:29.2229322Z;False|2024-01-15T19:53:27.0834662-03:00;True|2024-01-15T19:50:45.4304082-03:00;False|2024-01-15T19:48:52.3164755-03:00;True|2024-01-15T19:39:55.4203882-03:00;False|2024-01-15T19:38:44.9876868-03:00;True|2024-01-15T19:32:18.6181016-03:00;False|2024-01-15T19:29:54.9999405-03:00;True|2024-01-15T19:24:30.1057282-03:00;False|2024-01-15T19:17:03.4796766-03:00;False|2024-01-15T19:15:46.4216798-03:00;False|2024-01-15T19:14:20.7299945-03:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="appsettings.Development.json">
+      <publishTime>12/22/2023 12:22:11</publishTime>
+    </File>
+    <File Include="appsettings.json">
+      <publishTime>01/15/2024 19:51:49</publishTime>
+    </File>
+    <File Include="appsettings.production.json">
+      <publishTime>01/15/2024 19:53:50</publishTime>
+    </File>
+    <File Include="Azure.Core.dll">
+      <publishTime>06/30/2022 16:28:36</publishTime>
+    </File>
+    <File Include="Azure.Identity.dll">
+      <publishTime>09/19/2022 17:31:34</publishTime>
+    </File>
+    <File Include="BCrypt.Net-Next.dll">
+      <publishTime>03/03/2022 13:10:20</publishTime>
+    </File>
+    <File Include="Microsoft.AspNetCore.Authentication.JwtBearer.dll">
+      <publishTime>11/30/2023 16:08:04</publishTime>
+    </File>
+    <File Include="Microsoft.Bcl.AsyncInterfaces.dll">
+      <publishTime>10/22/2021 20:47:36</publishTime>
+    </File>
+    <File Include="Microsoft.Data.SqlClient.dll">
+      <publishTime>03/28/2023 02:28:24</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.Abstractions.dll">
+      <publishTime>10/31/2023 19:15:22</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.dll">
+      <publishTime>10/31/2023 19:15:58</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.Relational.dll">
+      <publishTime>10/31/2023 19:16:48</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.SqlServer.dll">
+      <publishTime>10/31/2023 19:16:56</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.DependencyModel.dll">
+      <publishTime>10/31/2023 11:59:24</publishTime>
+    </File>
+    <File Include="Microsoft.Identity.Client.dll">
+      <publishTime>10/03/2022 14:40:38</publishTime>
+    </File>
+    <File Include="Microsoft.Identity.Client.Extensions.Msal.dll">
+      <publishTime>11/19/2021 19:02:00</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.Abstractions.dll">
+      <publishTime>01/10/2024 15:34:24</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.JsonWebTokens.dll">
+      <publishTime>01/10/2024 15:34:22</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.Logging.dll">
+      <publishTime>01/10/2024 15:34:06</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.Protocols.dll">
+      <publishTime>11/20/2023 22:17:02</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.Protocols.OpenIdConnect.dll">
+      <publishTime>11/20/2023 22:30:36</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.Tokens.dll">
+      <publishTime>01/10/2024 15:34:06</publishTime>
+    </File>
+    <File Include="Microsoft.OpenApi.dll">
+      <publishTime>04/12/2022 16:54:32</publishTime>
+    </File>
+    <File Include="Microsoft.SqlServer.Server.dll">
+      <publishTime>01/27/2022 14:19:08</publishTime>
+    </File>
+    <File Include="Microsoft.Win32.SystemEvents.dll">
+      <publishTime>10/22/2021 20:40:24</publishTime>
+    </File>
+    <File Include="Newtonsoft.Json.dll">
+      <publishTime>03/08/2023 04:09:54</publishTime>
+    </File>
+    <File Include="NomNomNosh.API.deps.json">
+      <publishTime>01/15/2024 19:53:50</publishTime>
+    </File>
+    <File Include="NomNomNosh.API.dll">
+      <publishTime>01/15/2024 19:53:37</publishTime>
+    </File>
+    <File Include="NomNomNosh.API.exe">
+      <publishTime>01/15/2024 19:53:37</publishTime>
+    </File>
+    <File Include="NomNomNosh.API.pdb">
+      <publishTime>01/15/2024 19:53:37</publishTime>
+    </File>
+    <File Include="NomNomNosh.API.runtimeconfig.json">
+      <publishTime>01/15/2024 19:14:11</publishTime>
+    </File>
+    <File Include="NomNomNosh.Application.dll">
+      <publishTime>01/15/2024 19:14:05</publishTime>
+    </File>
+    <File Include="NomNomNosh.Application.pdb">
+      <publishTime>01/15/2024 19:14:05</publishTime>
+    </File>
+    <File Include="NomNomNosh.Domain.dll">
+      <publishTime>01/15/2024 19:14:04</publishTime>
+    </File>
+    <File Include="NomNomNosh.Domain.pdb">
+      <publishTime>01/15/2024 19:14:04</publishTime>
+    </File>
+    <File Include="NomNomNosh.Infrastructure.dll">
+      <publishTime>01/15/2024 19:14:06</publishTime>
+    </File>
+    <File Include="NomNomNosh.Infrastructure.pdb">
+      <publishTime>01/15/2024 19:14:06</publishTime>
+    </File>
+    <File Include="runtimes/unix/lib/net6.0/Microsoft.Data.SqlClient.dll">
+      <publishTime>03/28/2023 02:28:24</publishTime>
+    </File>
+    <File Include="runtimes/unix/lib/net6.0/System.Drawing.Common.dll">
+      <publishTime>10/22/2021 20:51:42</publishTime>
+    </File>
+    <File Include="runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll">
+      <publishTime>01/12/2023 19:19:36</publishTime>
+    </File>
+    <File Include="runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll">
+      <publishTime>01/12/2023 19:19:36</publishTime>
+    </File>
+    <File Include="runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll">
+      <publishTime>01/12/2023 19:19:36</publishTime>
+    </File>
+    <File Include="runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll">
+      <publishTime>01/12/2023 19:19:36</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/net6.0/Microsoft.Data.SqlClient.dll">
+      <publishTime>03/28/2023 02:27:58</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.dll">
+      <publishTime>10/22/2021 20:40:18</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/net6.0/System.Drawing.Common.dll">
+      <publishTime>10/22/2021 20:48:10</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/net6.0/System.Runtime.Caching.dll">
+      <publishTime>10/22/2021 20:52:44</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.dll">
+      <publishTime>10/22/2021 20:51:04</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/net6.0/System.Windows.Extensions.dll">
+      <publishTime>10/22/2021 20:49:58</publishTime>
+    </File>
+    <File Include="Scrutor.dll">
+      <publishTime>11/03/2020 15:42:16</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.Filters.Abstractions.dll">
+      <publishTime>01/08/2024 23:21:10</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.Filters.dll">
+      <publishTime>01/08/2024 23:21:12</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.Swagger.dll">
+      <publishTime>07/19/2022 12:21:22</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.SwaggerGen.dll">
+      <publishTime>07/19/2022 12:21:38</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.SwaggerUI.dll">
+      <publishTime>07/19/2022 12:21:48</publishTime>
+    </File>
+    <File Include="System.Configuration.ConfigurationManager.dll">
+      <publishTime>08/19/2022 16:58:02</publishTime>
+    </File>
+    <File Include="System.Drawing.Common.dll">
+      <publishTime>10/22/2021 20:49:12</publishTime>
+    </File>
+    <File Include="System.IdentityModel.Tokens.Jwt.dll">
+      <publishTime>01/10/2024 15:32:32</publishTime>
+    </File>
+    <File Include="System.Memory.Data.dll">
+      <publishTime>04/08/2021 13:45:54</publishTime>
+    </File>
+    <File Include="System.Runtime.Caching.dll">
+      <publishTime>10/22/2021 20:52:02</publishTime>
+    </File>
+    <File Include="System.Security.Cryptography.ProtectedData.dll">
+      <publishTime>10/22/2021 20:51:04</publishTime>
+    </File>
+    <File Include="System.Security.Permissions.dll">
+      <publishTime>10/22/2021 20:49:50</publishTime>
+    </File>
+    <File Include="System.Windows.Extensions.dll">
+      <publishTime>10/22/2021 20:49:44</publishTime>
+    </File>
+    <File Include="web.config">
+      <publishTime>01/15/2024 19:53:50</publishTime>
+    </File>
+  </ItemGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>workstation id=NomNomNush_Hub.mssql.somee.com%3bpacket size=4096%3buser id=IvoCW_SQLLogin_1%3bpwd=yvezjsjrww%3bdata source=NomNomNush_Hub.mssql.somee.com%3bpersist security info=False%3binitial catalog=NomNomNush_Hub%3bTrustServerCertificate=True</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="NomNomNosh.Infrastructure.Data.AppDbContext">
+      <Value>workstation id=NomNomNush_Hub.mssql.somee.com%3bpacket size=4096%3buser id=IvoCW_SQLLogin_1%3bpwd=yvezjsjrww%3bdata source=NomNomNush_Hub.mssql.somee.com%3bpersist security info=False%3binitial catalog=NomNomNush_Hub</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

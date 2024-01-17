@@ -37,7 +37,7 @@ namespace NomNomNosh.API.Controllers
                     Title = recipe.Title,
                     Main_Image = recipe.Main_Image,
                     Description = recipe.Description
-                });
+                }, member.Username);
             }
             catch (Exception ex)
             {

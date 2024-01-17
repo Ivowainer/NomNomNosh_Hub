@@ -18,7 +18,7 @@ namespace NomNomNosh.Infrastructure.Repositories
             _utils = utils;
         }
 
-        public async Task<RecipeDto> CreateRecipe(Guid member_id, Recipe recipe)
+        public async Task<RecipeDto> CreateRecipe(Guid member_id, Recipe recipe, string username)
         {
             if (!_appDbContext.Members.Any(m => m.Member_Id == member_id))
                 throw new InvalidOperationException("Member not found");
@@ -26,9 +26,10 @@ namespace NomNomNosh.Infrastructure.Repositories
             recipe.Member_Id = member_id;
             recipe.Average_Rating = 0;
             recipe.Published_Date = DateTime.Now;
+            recipe.Slug = _utils.GenerateSlug(recipe.Title + " " + username);
 
-            await _appDbContext.Recipes.AddAsync(recipe);
-            await _appDbContext.SaveChangesAsync();
+            /* await _appDbContext.Recipes.AddAsync(recipe);
+            await _appDbContext.SaveChangesAsync(); */
 
             return new RecipeDto
             {
@@ -39,6 +40,7 @@ namespace NomNomNosh.Infrastructure.Repositories
                 Main_Image = recipe.Main_Image,
                 Member_Id = recipe.Member_Id,
                 Published_Date = recipe.Published_Date,
+                Slug = recipe.Slug
             };
         }
 
@@ -65,7 +67,8 @@ namespace NomNomNosh.Infrastructure.Repositories
                 Published_Date = recipe.Published_Date,
                 Main_Image = recipe.Main_Image,
                 Average_Rating = recipe.Average_Rating,
-                Description = recipe.Description
+                Description = recipe.Description,
+                Slug = recipe.Slug
             }).ToList();
         }
 
@@ -85,6 +88,7 @@ namespace NomNomNosh.Infrastructure.Repositories
                 Description = recipeToUpdate.Description,
                 Main_Image = recipeToUpdate.Main_Image,
                 Published_Date = recipe.Published_Date,
+                Slug = recipe.Slug
             };
         }
 
@@ -104,6 +108,7 @@ namespace NomNomNosh.Infrastructure.Repositories
                 Main_Image = recipe.Main_Image,
                 Member_Id = recipe.Member_Id,
                 Published_Date = recipe.Published_Date,
+                Slug = recipe.Slug
             };
         }
     }

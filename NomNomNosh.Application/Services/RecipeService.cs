@@ -12,7 +12,7 @@ namespace NomNomNosh.Application.Services
             _recipeRepository = recipeRepository;
         }
 
-        public async Task<RecipeDto> CreateRecipe(Guid member_id, Recipe recipe)
+        public async Task<RecipeDto> CreateRecipe(Guid member_id, Recipe recipe, string username)
         {
             if (recipe.Title.Length < 6)
                 throw new ArgumentException("The title of the recipe must be at least 6 characters");
@@ -21,7 +21,7 @@ namespace NomNomNosh.Application.Services
             if (recipe.Main_Image == null)
                 throw new ArgumentException("The main image is required");
 
-            var newRecipe = await _recipeRepository.CreateRecipe(member_id, recipe);
+            var newRecipe = await _recipeRepository.CreateRecipe(member_id, recipe, username);
 
             return newRecipe;
         }

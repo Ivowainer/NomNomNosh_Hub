@@ -8,9 +8,10 @@ namespace NomNomNosh.Domain.Entities
         public DateTime Published_Date { get; set; }
         public string Main_Image { get; set; }
         public decimal Average_Rating { get; set; }
+        public string Slug { get; set; }
 
         // One to Many (Member => Recipes)
-        public Member? Member { get; set; }
+        public Member Member { get; set; }
         public Guid Member_Id { get; set; }
 
         // One recipe have many comments, One to Many (Recipe => Comments)
