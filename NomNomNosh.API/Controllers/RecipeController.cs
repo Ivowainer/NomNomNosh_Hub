@@ -58,14 +58,14 @@ namespace NomNomNosh.API.Controllers
             }
         }
 
-        [Route("{recipe_id}")]
+        [Route("{recipe_slug}")]
         [HttpGet]
         [TypeFilter(typeof(AuthorizationFilter))]
-        public async Task<ActionResult<Recipe>> GetRecipe(Guid recipe_id)
+        public async Task<ActionResult<Recipe>> GetRecipe(string recipe_slug)
         {
             try
             {
-                return await _recipeService.GetRecipe(recipe_id);
+                return await _recipeService.GetRecipe(recipe_slug);
             }
             catch (Exception ex)
             {

@@ -26,9 +26,9 @@ namespace NomNomNosh.Application.Services
             return newRecipe;
         }
 
-        public async Task<Recipe> GetRecipe(Guid recipe_id)
+        public async Task<Recipe> GetRecipe(string recipe_slug)
         {
-            return await _recipeRepository.GetRecipe(recipe_id);
+            return await _recipeRepository.GetRecipe(recipe_slug);
         }
 
         public async Task<ICollection<RecipeDto>> GetRecipes()

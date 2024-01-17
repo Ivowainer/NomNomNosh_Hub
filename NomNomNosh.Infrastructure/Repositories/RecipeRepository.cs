@@ -23,13 +23,18 @@ namespace NomNomNosh.Infrastructure.Repositories
             if (!_appDbContext.Members.Any(m => m.Member_Id == member_id))
                 throw new InvalidOperationException("Member not found");
 
+
+            // Random number
+            Random random = new Random();
+            int randomNumber = random.Next(1000, 10000);
+
             recipe.Member_Id = member_id;
             recipe.Average_Rating = 0;
             recipe.Published_Date = DateTime.Now;
-            recipe.Slug = _utils.GenerateSlug(recipe.Title + " " + username);
+            recipe.Slug = _utils.GenerateSlug(recipe.Title + " " + randomNumber);
 
-            /* await _appDbContext.Recipes.AddAsync(recipe);
-            await _appDbContext.SaveChangesAsync(); */
+            await _appDbContext.Recipes.AddAsync(recipe);
+            await _appDbContext.SaveChangesAsync();
 
             return new RecipeDto
             {
@@ -44,12 +49,12 @@ namespace NomNomNosh.Infrastructure.Repositories
             };
         }
 
-        public async Task<Recipe> GetRecipe(Guid recipe_id)
+        public async Task<Recipe> GetRecipe(string recipe_slug)
         {
             var recipe = _appDbContext.Recipes
                                     .Include(rc => rc.RecipeSteps)
                                     .Include(rc => rc.RecipeComments)
-                                    .FirstOrDefault(rc => rc.Recipe_Id == recipe_id)
+                                    .FirstOrDefault(rc => rc.Slug == recipe_slug)
                                     ?? throw new InvalidOperationException("Recipe not found");
 
             return recipe;
