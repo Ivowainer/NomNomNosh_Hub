@@ -54,6 +54,8 @@ namespace NomNomNosh.Infrastructure.Repositories
             var recipe = _appDbContext.Recipes
                                     .Include(rc => rc.RecipeSteps)
                                     .Include(rc => rc.RecipeComments)
+                                        .ThenInclude(comment => comment.Member)
+                                    .Include(rc => rc.Member)
                                     .FirstOrDefault(rc => rc.Slug == recipe_slug)
                                     ?? throw new InvalidOperationException("Recipe not found");
 

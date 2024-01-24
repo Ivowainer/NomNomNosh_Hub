@@ -80,12 +80,26 @@ namespace NomNomNosh.API.Controllers
         }
 
         [Route("{member_id}")]
-        [HttpPost]
+        [HttpGet]
         public async Task<ActionResult<Member>> GetMember(Guid member_id)
         {
             try
             {
                 return await _memberService.GetMember(member_id);
+            }
+            catch (Exception ex)
+            {
+                return Json(_errorHandler.HandleError(ex));
+            }
+        }
+
+        [Route("{member_id}/recipe")]
+        [HttpGet]
+        public async Task<ActionResult<ICollection<Recipe>>> GetMemberRecipes(Guid member_id)
+        {
+            try
+            {
+                return Ok(await _memberService.GetMemberRecipes(member_id));
             }
             catch (Exception ex)
             {
