@@ -24,6 +24,10 @@ namespace NomNomNosh.Infrastructure.Repositories
             if (!await _appDbContext.Members.AnyAsync(m => m.Member_Id == member_id))
                 throw new InvalidOperationException("Member not found");
 
+            if (await _appDbContext.RecipeComments.AnyAsync(rc => rc.Member_Id == member_id && rc.Recipe_Id == recipe_id))
+                throw new ArgumentException("The comment recipe by the member are already exists");
+
+
             recipeComment.RecipeComment_Date = DateTime.Now;
             recipeComment.Member_Id = member_id;
             recipeComment.Recipe_Id = recipe_id;
