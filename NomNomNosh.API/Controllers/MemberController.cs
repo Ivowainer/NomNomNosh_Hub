@@ -106,5 +106,19 @@ namespace NomNomNosh.API.Controllers
                 return Json(_errorHandler.HandleError(ex));
             }
         }
+
+        [HttpGet]
+        public async Task<ActionResult<MemberDto>> GetProfile()
+        {
+            try
+            {
+                var member = _authService.DecodeToken(HttpContext);
+                return Ok(await _memberService.GetMember(member.Member_Id));
+            }
+            catch (Exception ex)
+            {
+                return Json(_errorHandler.HandleError(ex));
+            }
+        }
     }
 }

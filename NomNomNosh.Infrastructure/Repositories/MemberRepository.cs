@@ -66,7 +66,7 @@ namespace NomNomNosh.Infrastructure.Repositories
 
         public async Task<ICollection<Recipe>> GetMemberRecipes(Guid member_id)
         {
-            return await _appDbContext.Recipes.Where(r => r.Member_Id == member_id).ToListAsync() ?? throw new InvalidOperationException("Member not found");
+            return await _appDbContext.Recipes.Where(r => r.Member_Id == member_id).Include(r => r.RecipeSteps).ToListAsync() ?? throw new InvalidOperationException("Member not found");
         }
     }
 }
