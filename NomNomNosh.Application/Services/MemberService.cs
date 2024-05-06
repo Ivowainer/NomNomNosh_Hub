@@ -20,9 +20,9 @@ namespace NomNomNosh.Application.Services
         public async Task<MemberDto> LoginMember(string email, string password)
         {
             if (!IsValidEmail(email))
-                throw new UnauthorizedAccessException("The email adress given is wrong");
+                throw new UnauthorizedAccessException("The given Email address is invalid");
             if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
-                throw new ArgumentException("Cannot be null the Emila or Password");
+                throw new ArgumentException("The Email or Password cannot be Null");
 
             var member = await _memberRepository.LoginMember(email, password);
 
@@ -32,17 +32,17 @@ namespace NomNomNosh.Application.Services
         public async Task<MemberDto> RegisterMember(Member member)
         {
             if (!IsValidEmail(member.Email))
-                throw new ArgumentException("The email adress given is wrong");
+                throw new ArgumentException("The given Email address is invalid");
             if (member.First_Name.Length < 3)
-                throw new ArgumentException("The First Name must be at least 2 characters");
+                throw new ArgumentException("First Name must contain at least 2 characters");
             if (member.Last_Name.Length <= 3)
-                throw new ArgumentException("The Last Name must be at least 6 characters");
+                throw new ArgumentException("Last Name must contain at least 6 characters");
             if (member.Password.Length <= 5)
-                throw new ArgumentException("The Password must be at least 6 characters");
+                throw new ArgumentException("Password must contain at least 6 characters");
             member.Profile_Image ??= "https://img.freepik.com/free-vector/illustration-user-avatar-icon_53876-5907.jpg?w=740&t=st=1704294997~exp=1704295597~hmac=dfd96f01386981955314f5bdf9ecc5b386eb1350fa5c7a38ce2cee178a0c3575";
 
             if (await _memberRepository.MemberAlreadyExists(member.Username, member.Email))
-                throw new ArgumentException($"The user {member.Username} already exists");
+                throw new ArgumentException($"The username {member.Username} is already taken");
 
             var newMember = await _memberRepository.RegisterMember(member);
 

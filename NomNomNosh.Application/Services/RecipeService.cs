@@ -15,11 +15,11 @@ namespace NomNomNosh.Application.Services
         public async Task<RecipeDto> CreateRecipe(Guid member_id, Recipe recipe, string username)
         {
             if (recipe.Title.Length < 6)
-                throw new ArgumentException("The title of the recipe must be at least 6 characters");
+                throw new ArgumentException("Recipe title must contain at least 6 characters");
             if (recipe.Description.Length < 10)
-                throw new ArgumentException("The Description must be at least 10 characters");
+                throw new ArgumentException("Description must contain at least 10 characters");
             if (recipe.Main_Image == null)
-                throw new ArgumentException("The main image is required");
+                throw new ArgumentException("A main image is required");
 
             var newRecipe = await _recipeRepository.CreateRecipe(member_id, recipe, username);
 
@@ -39,11 +39,11 @@ namespace NomNomNosh.Application.Services
         public async Task<RecipeDto> UpdateRecipe(Guid recipe_id, Guid member_id, Recipe recipe)
         {
             if (recipe.Title.Length < 6)
-                throw new ArgumentException("The title of the recipe must be at least 6 characters");
+                throw new ArgumentException("Recipe title must contain at least 6 characters");
             if (recipe.Description.Length < 10)
-                throw new ArgumentException("The Description must be at least 10 characters");
+                throw new ArgumentException("Description must contain at least 10 characters");
             if (recipe.Main_Image == null)
-                throw new ArgumentException("The main image is required");
+                throw new ArgumentException("A main image is required");
 
             return await _recipeRepository.UpdateRecipe(recipe_id, member_id, recipe);
         }
